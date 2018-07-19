@@ -1,5 +1,4 @@
 import numpy as np
-from matplotlib import pyplot as plt
 from scipy import ndimage
 import cv2
 
