@@ -16,6 +16,9 @@ for channel, thermal in matched_files.items():
         for file in files:
             if file.endswith(".TIF") and "REG" not in file:
 
+                offset_correction_x = 0
+                offset_correction_y = 0
+
                 if "GRE" in file:
                     offset_correction_x = 0
                     offset_correction_y = 0
