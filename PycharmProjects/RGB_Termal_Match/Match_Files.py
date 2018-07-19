@@ -1,5 +1,3 @@
-import numpy as np
-import cv2
 from ROI_Matching import *
 from Match_by_Time import *
 from libxmp import XMPFiles, consts
@@ -9,29 +7,6 @@ thermal_path = "/Volumes/NO NAME/PT_5/THERMAL/"
 tif_path = "/Volumes/NO NAME/PT_5/DCIM/"
 
 matched_files = match_by_time(thermal_path, tif_path)
-
-
-# pickling_on = open("Emp.pickle", "wb")
-# pickle.dump(matched_files, pickling_on)
-# pickling_on.close()
-
-# for channel, thermal in matched_files.items():
-#     print(thermal[0][1])
-#     print(channel[0])
-#     for root, subs, files in os.walk(channel[0]):
-#         for file in files:
-#             if file.endswith(".TIF") and "REG" not in file:
-#                 crop = match_images(os.path.join(root, file), os.path.join(thermal[0][0], thermal[0][1]))
-#                 file_name = save_path + file[:-4] + "_Cropped.TIF"
-#                 print("\t" + file_name)
-#                 img = cv2.imread(os.path.join(root, file))
-#                 cropped = img[crop[0][1]:crop[1][1], crop[0][0]:crop[1][0]]
-#
-#                 cv2.imshow("1", cv2.imread((os.path.join(root, file))))
-#                 cv2.imshow("3", cropped)
-#                 cv2.waitKey(0)
-#
-#                 cv2.imwrite(file_name, cropped)
 
 for channel, thermal in matched_files.items():
     print(thermal[0][1])
@@ -79,7 +54,7 @@ for channel, thermal in matched_files.items():
 
                 xmp_crop_file = XMPFiles(file_path=file_name, open_forupdate=True)
                 xmp_crop = xmp_crop_file.get_xmp()
-                assert xmp_crop_file.can_put_xmp(xmp_original) , "Houston, we have a problem!"
+                assert xmp_crop_file.can_put_xmp(xmp_original), "Houston, we have a problem!"
 
                 xmp_crop_file.put_xmp(xmp_original)
                 xmp_crop_file.close_file()
