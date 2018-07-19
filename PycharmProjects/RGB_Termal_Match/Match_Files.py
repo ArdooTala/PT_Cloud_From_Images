@@ -2,6 +2,7 @@ import numpy as np
 import cv2
 from ROI_Matching import *
 from Match_by_Time import *
+from libxmp import XMPFiles, consts
 
 save_path = "/Users/Ardoo/Desktop/PT_5_Crop/"
 thermal_path = "/Volumes/NO NAME/PT_5/THERMAL/"
@@ -53,10 +54,6 @@ for channel, thermal in matched_files.items():
                 file_name = save_path + file[:-4] + "_Cropped.TIF"
                 print("\t" + file_name)
                 img = cv2.imread(os.path.join(root, file))
-                # cropped = img[(crop[0][1] + offset_correction_y):(crop[1][1] + offset_correction_y),
-                #           (crop[0][0] + offset_correction_x):(crop[1][0] + offset_correction_x)]
-
-                # cropped = img[crop[0][1]:crop[1][1], crop[0][0]:crop[1][0]]
 
                 try:
                     y_min = crop[0][1] + offset_correction_y
@@ -73,7 +70,17 @@ for channel, thermal in matched_files.items():
                     x_min = crop[0][0]
                     x_max = crop[1][0]
 
-                print(y_min, y_max, "<>", x_min, x_max)
                 cropped = img[y_min:y_max, x_min:x_max]
 
                 cv2.imwrite(file_name, cropped)
+
+                xmp_file_original = XMPFiles(file_path=os.path.join(root, file), open_forupdate=True)
+                xmp_original = xmp_file_original.get_xmp()
+
+                xmp_crop_file = XMPFiles(file_path=file_name, open_forupdate=True)
+                xmp_crop = xmp_crop_file.get_xmp()
+                assert xmp_crop_file.can_put_xmp(xmp_original) , "Houston, we have a problem!"
+
+                xmp_crop_file.put_xmp(xmp_original)
+                xmp_crop_file.close_file()
+                print("\tXMP Updated!")
