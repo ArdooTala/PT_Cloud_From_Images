@@ -28,10 +28,10 @@ def crop_and_save(tif_path, thermal_path, save_path, save_as_mask=False, save_as
                     if save_as_mask:
                         mask = np.zeros(img.shape)
                         mask[y_min: y_max, x_min: x_max] = 255
-                        file_name = save_path + '/Masks/' + file[:-4] + "_Mask.PNG"
+                        file_name = save_path + 'Masks/' + file[:-4] + "_Mask.png"
                         print("\t" + file_name)
                         cv2.imwrite(file_name, mask)
-                        
+
 
 if __name__ == "__main__":
     save_path = "/Users/Ardoo/Desktop/PT_5_Crop_Test2/"
