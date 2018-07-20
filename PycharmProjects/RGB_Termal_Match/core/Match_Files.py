@@ -1,9 +1,7 @@
 from core.ROI_Matching import *
-from libxmp import XMPFiles
 
 
-def crop_and_save(tif_path, thermal_path, save_path):
-
+def crop_and_save(tif_path, thermal_path, save_path, save_as_mask=False, save_as_crop=True):
     matched_files = match_by_time(thermal_path, tif_path)
 
     for channel, thermal in matched_files.items():
@@ -13,57 +11,31 @@ def crop_and_save(tif_path, thermal_path, save_path):
         for root, subs, files in os.walk(channel[0]):
             for file in files:
                 if file.endswith(".TIF") and "REG" not in file:
+                    img = cv2.imread(os.path.join(root, file), -1)
 
-                    offset_correction_x = 0
-                    offset_correction_y = 0
+                    y_min = crop[0][1]
+                    y_max = crop[1][1]
+                    x_min = crop[0][0]
+                    x_max = crop[1][0]
 
-                    if "GRE" in file:
-                        offset_correction_x = 0
-                        offset_correction_y = 0
-                    if "RED" in file:
-                        offset_correction_x = -7
-                        offset_correction_y = 16
-                    if "NIR" in file:
-                        offset_correction_x = -6
-                        offset_correction_y = 2
+                    if save_as_crop:
+                        cropped = img[y_min:y_max, x_min:x_max]
+                        file_name = save_path + file[:-4] + "_Cropped.TIF"
+                        print("\t" + file_name)
+                        cv2.imwrite(file_name, cropped)
+                        copy_xmp(os.path.join(root, file), file_name)
 
-                    file_name = save_path + file[:-4] + "_Cropped.TIF"
-                    print("\t" + file_name)
-                    img = cv2.imread(os.path.join(root, file))
-
-                    try:
-                        y_min = crop[0][1] + offset_correction_y
-                        y_max = crop[1][1] + offset_correction_y
-                        x_min = crop[0][0] + offset_correction_x
-                        x_max = crop[1][0] + offset_correction_x
-                        assert y_min >= 0
-                        assert y_max >= 0
-                        assert x_min >= 0
-                        assert x_max >= 0
-                    except AssertionError:
-                        y_min = crop[0][1]
-                        y_max = crop[1][1]
-                        x_min = crop[0][0]
-                        x_max = crop[1][0]
-
-                    cropped = img[y_min:y_max, x_min:x_max]
-
-                    cv2.imwrite(file_name, cropped)
-
-                    xmp_file_original = XMPFiles(file_path=os.path.join(root, file), open_forupdate=True)
-                    xmp_original = xmp_file_original.get_xmp()
-
-                    xmp_crop_file = XMPFiles(file_path=file_name, open_forupdate=True)
-                    assert xmp_crop_file.can_put_xmp(xmp_original), "Houston, we have a problem!"
-
-                    xmp_crop_file.put_xmp(xmp_original)
-                    xmp_crop_file.close_file()
-                    print("\tXMP Updated!")
-
+                    if save_as_mask:
+                        mask = np.zeros(img.shape)
+                        mask[y_min: y_max, x_min: x_max] = 255
+                        file_name = save_path + '/Masks/' + file[:-4] + "_Mask.PNG"
+                        print("\t" + file_name)
+                        cv2.imwrite(file_name, mask)
+                        
 
 if __name__ == "__main__":
-    save_path = "/Users/Ardoo/Desktop/PT_5_Crop/"
+    save_path = "/Users/Ardoo/Desktop/PT_5_Crop_Test2/"
     thermal_path = "/Volumes/NO NAME/PT_5/THERMAL/"
     tif_path = "/Volumes/NO NAME/PT_5/DCIM/"
 
-    crop_and_save(tif_path, thermal_path, save_path)
+    crop_and_save(tif_path, thermal_path, save_path, save_as_crop=False, save_as_mask=True)

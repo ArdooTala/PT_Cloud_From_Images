@@ -2,6 +2,7 @@ from core.Visualize_Thermal_Image import *
 import os
 from datetime import datetime
 from datetime import timedelta
+from libxmp import XMPFiles
 
 
 def match_images(rgb_path, thermal_path):
@@ -45,9 +46,10 @@ def match_images(rgb_path, thermal_path):
     # print(cropped_image.shape)
     return top_left, bottom_right, rgb_image  # cropped_image
 
-def match_by_time(thermal_path, tif_path):
+
+def match_by_time(thermal_image_path, tif_image_path):
     thermal_images_times = {}
-    for root, subs, files in os.walk(thermal_path):
+    for root, subs, files in os.walk(thermal_image_path):
         for file in files:
             try:
                 thermal_images_times[(root, file)] = datetime.strptime(file.split('.')[0], '%Y%m%d_%H%M%S')
@@ -59,7 +61,7 @@ def match_by_time(thermal_path, tif_path):
 
     matched_files = {}
     counter = 0
-    for root, subs, files in os.walk(tif_path):
+    for root, subs, files in os.walk(tif_image_path):
         for sub in subs:
             for _root, _subs, _files in os.walk(os.path.join(root, sub)):
                 for file in _files:
@@ -88,6 +90,19 @@ def match_by_time(thermal_path, tif_path):
     print("%d images saved to dict." % counter)
 
     return matched_files
+
+
+def copy_xmp(original_file, target_file):
+    xmp_file_original = XMPFiles(file_path=original_file, open_forupdate=True)
+    xmp_original = xmp_file_original.get_xmp()
+
+    xmp_crop_file = XMPFiles(file_path=target_file, open_forupdate=True)
+    assert xmp_crop_file.can_put_xmp(xmp_original), "Houston, we have a problem!"
+
+    xmp_crop_file.put_xmp(xmp_original)
+    xmp_crop_file.close_file()
+    print("\tXMP Updated!")
+
 
 if __name__ == "__main__":
     thermal_path = "/Volumes/NO NAME/PT_5/THERMAL/"

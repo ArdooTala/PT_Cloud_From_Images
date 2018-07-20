@@ -5,16 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9cf57a34-c3f7-4160-8471-fb5fda13d99d" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/Match_Files.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/ROI_Matching.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+      <change afterPath="$APPLICATION_CONFIG_DIR$/options/markdown.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Match_Files.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Match_by_Time.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ROI_Matching.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Visualize_Thermal_Image.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/Visualize_Thermal_Image.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/Match_Files.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/Match_Files.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/ROI_Matching.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/ROI_Matching.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,23 +23,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Match_Files.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Match_Files.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/Match_Files.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
-              <caret line="42" column="41" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="41" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="495">
+              <caret line="33" column="24" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="22" selection-start-column="22" selection-end-column="22" />
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="60">
+                <caret line="4" selection-start-line="4" selection-end-line="7" selection-end-column="26" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -52,10 +47,10 @@
       <file leaf-file-name="ROI_Matching.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/ROI_Matching.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="793">
-              <caret line="96" column="67" selection-start-line="96" selection-start-column="67" selection-end-line="96" selection-end-column="67" />
+            <state relative-caret-position="235">
+              <caret line="40" column="19" lean-forward="true" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
               <folding>
-                <element signature="e#0#37#0" expanded="true" />
+                <element signature="e#0#42#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -121,8 +116,9 @@
         <option value="$PROJECT_DIR$/Match_by_Time.py" />
         <option value="$PROJECT_DIR$/ROI_Matching.py" />
         <option value="$PROJECT_DIR$/Match_Files.py" />
-        <option value="$PROJECT_DIR$/core/Match_Files.py" />
+        <option value="$PROJECT_DIR$/core/ROI_Matching.py" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/core/Match_Files.py" />
       </list>
     </option>
   </component>
@@ -176,7 +172,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.setup">
+  <component name="RunManager" selected="Python.Thermal_Visualize">
     <configuration name="File_Handling" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="RGB_Termal_Match" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -257,8 +253,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.setup" />
         <item itemvalue="Python.Thermal_Visualize" />
+        <item itemvalue="Python.setup" />
         <item itemvalue="Python.ROI_Matching" />
         <item itemvalue="Python.File_Handling" />
       </list>
@@ -310,29 +306,44 @@
       <option name="project" value="LOCAL" />
       <updated>1532017051966</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Structured properly!">
+      <created>1532021726116</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1532021726116</updated>
+    </task>
+    <task id="LOCAL-00007" summary="README.md added!">
+      <created>1532022001200</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1532022001200</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.4974359" visible="true" weight="0.24954791" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49535602" visible="true" weight="0.24954791" />
       <window_info anchor="bottom" id="TODO" order="11" />
-      <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.50090414" side_tool="true" weight="0.3374359" />
-      <window_info anchor="bottom" id="Inspection Results" order="0" weight="0.3296593" />
-      <window_info anchor="bottom" id="Find" order="6" weight="0.3296593" />
-      <window_info anchor="bottom" id="Run" order="7" sideWeight="0.49909583" weight="0.3374359" />
+      <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.50090414" side_tool="true" weight="0.32923076" />
+      <window_info anchor="bottom" id="Find" order="6" sideWeight="0.49909583" weight="0.32923076" />
       <window_info anchor="bottom" id="Version Control" order="4" />
       <window_info anchor="bottom" id="Python Console" order="1" weight="0.3296593" />
-      <window_info id="Structure" order="2" sideWeight="0.50256413" side_tool="true" visible="true" weight="0.24954791" />
+      <window_info active="true" anchor="bottom" id="Run" order="7" sideWeight="0.49909583" visible="true" weight="0.3374359" />
+      <window_info id="Structure" order="2" sideWeight="0.504644" side_tool="true" visible="true" weight="0.24954791" />
       <window_info anchor="bottom" id="Terminal" order="2" weight="0.3296593" />
-      <window_info anchor="bottom" id="Debug" order="8" weight="0.3997996" />
       <window_info id="Favorites" order="0" side_tool="true" weight="0.32971668" />
+      <window_info anchor="bottom" id="Debug" order="8" weight="0.3997996" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection Results" order="0" weight="0.3296593" />
       <window_info anchor="bottom" id="Message" order="5" />
-      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
     </layout>
   </component>
@@ -344,16 +355,60 @@
     <MESSAGE value="First_Version:&#10;Including both feature matching image by image and feature matching per directory." />
     <MESSAGE value="XMP Metadata added to cropped images." />
     <MESSAGE value="file by file Feature_Matching deleted from file.&#10;Pickling deleted from file." />
-    <option name="LAST_COMMIT_MESSAGE" value="file by file Feature_Matching deleted from file.&#10;Pickling deleted from file." />
+    <MESSAGE value="Structured properly!" />
+    <MESSAGE value="README.md added!" />
+    <option name="LAST_COMMIT_MESSAGE" value="README.md added!" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/core/Match_Files.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="42" column="41" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/ROI_Matching.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1395">
+          <caret line="96" column="67" selection-start-line="96" selection-start-column="67" selection-end-line="96" selection-end-column="67" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/Visualize_Thermal_Image.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="22" selection-start-column="22" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/Match_Files.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1035">
           <caret line="69" column="1" lean-forward="true" selection-start-line="69" selection-start-column="1" selection-end-line="69" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -362,7 +417,7 @@
         <state relative-caret-position="465">
           <caret line="33" column="23" lean-forward="true" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
           <folding>
-            <element signature="e#0#37#0" expanded="true" />
+            <element signature="e#0#42#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -378,9 +433,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="675">
           <caret line="45" column="19" selection-start-line="45" selection-start-column="19" selection-end-line="45" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -389,7 +441,7 @@
         <state relative-caret-position="195">
           <caret line="15" column="107" lean-forward="true" selection-start-line="15" selection-start-column="107" selection-end-line="15" selection-end-column="107" />
           <folding>
-            <element signature="e#0#37#0" expanded="true" />
+            <element signature="e#0#42#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -398,9 +450,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
           <caret line="45" column="19" selection-start-line="45" selection-start-column="19" selection-end-line="45" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -416,7 +465,7 @@
         <state relative-caret-position="420">
           <caret line="30" column="86" selection-start-line="30" selection-start-column="86" selection-end-line="30" selection-end-column="86" />
           <folding>
-            <element signature="e#0#37#0" expanded="true" />
+            <element signature="e#0#42#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -458,9 +507,7 @@
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Thermal.png" />
-    <entry file="file://$PROJECT_DIR$/JJ_screenshot_18.07.2018.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/JJ_screenshot_18.07.2018.png" />
     <entry file="file://$PROJECT_DIR$/venv/bin/activate">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -474,6 +521,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Match_by_Time.py" />
+    <entry file="file://$PROJECT_DIR$/core/Visualize_Thermal_Image.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -483,42 +538,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/ROI_Matching.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="793">
-          <caret line="96" column="67" selection-start-line="96" selection-start-column="67" selection-end-line="96" selection-end-column="67" />
+        <state relative-caret-position="235">
+          <caret line="40" column="19" lean-forward="true" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
           <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Match_by_Time.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="8" lean-forward="true" selection-start-line="8" selection-start-column="8" selection-end-line="10" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/Visualize_Thermal_Image.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/Match_Files.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="42" column="41" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#42#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
+      <provider editor-type-id="text-editor">
         <state>
-          <caret column="22" selection-start-column="22" selection-end-column="22" />
+          <caret column="22" lean-forward="true" selection-start-column="22" selection-end-column="22" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="60">
+            <caret line="4" selection-start-line="4" selection-end-line="7" selection-end-column="26" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/Match_Files.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="24" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
         </state>
       </provider>
     </entry>
