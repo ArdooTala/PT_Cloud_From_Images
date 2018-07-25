@@ -23,8 +23,8 @@
       <file leaf-file-name="database.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/database.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2364">
-              <caret line="281" lean-forward="true" selection-start-line="281" selection-end-line="281" />
+            <state relative-caret-position="-1628">
+              <caret line="160" column="31" lean-forward="true" selection-start-line="160" selection-start-column="31" selection-end-line="160" selection-end-column="31" />
               <folding>
                 <element signature="e#1732#1746#0" expanded="true" />
               </folding>
@@ -35,8 +35,8 @@
       <file leaf-file-name="Database_Modification.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/Database_Modification.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-410">
-              <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
+            <state relative-caret-position="269">
+              <caret line="117" column="55" lean-forward="true" selection-start-line="117" selection-start-column="55" selection-end-line="117" selection-end-column="55" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -310,7 +310,14 @@
       <option name="project" value="LOCAL" />
       <updated>1532538410533</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="CLASS Debugged!">
+      <created>1532539693478</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1532539693478</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -320,6 +327,7 @@
       <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49395162" visible="true" weight="0.29175475" />
       <window_info anchor="bottom" id="TODO" order="11" />
       <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.50090414" side_tool="true" weight="0.32923076" />
+      <window_info anchor="bottom" id="Find" order="6" sideWeight="0.49909583" weight="0.32848486" />
       <window_info active="true" anchor="bottom" id="Run" order="7" sideWeight="0.49909583" visible="true" weight="0.3987879" />
       <window_info anchor="bottom" id="Version Control" order="4" weight="0.32969698" />
       <window_info anchor="bottom" id="Python Console" order="1" weight="0.3296593" />
@@ -334,7 +342,6 @@
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="6" sideWeight="0.49909583" weight="0.32923076" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -353,7 +360,8 @@
     <MESSAGE value="Updated feature Detection.&#10;Thermals are now saved to the directory.&#10;KeyPoint filtering in progress." />
     <MESSAGE value="Class initiation." />
     <MESSAGE value="Class inherited from COLMAPdatabase." />
-    <option name="LAST_COMMIT_MESSAGE" value="Class inherited from COLMAPdatabase." />
+    <MESSAGE value="CLASS Debugged!" />
+    <option name="LAST_COMMIT_MESSAGE" value="CLASS Debugged!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -632,8 +640,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/database.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2364">
-          <caret line="281" lean-forward="true" selection-start-line="281" selection-end-line="281" />
+        <state relative-caret-position="-1628">
+          <caret line="160" column="31" lean-forward="true" selection-start-line="160" selection-start-column="31" selection-end-line="160" selection-end-column="31" />
           <folding>
             <element signature="e#1732#1746#0" expanded="true" />
           </folding>
@@ -642,8 +650,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/Database_Modification.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-410">
-          <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
+        <state relative-caret-position="269">
+          <caret line="117" column="55" lean-forward="true" selection-start-line="117" selection-start-column="55" selection-end-line="117" selection-end-column="55" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>

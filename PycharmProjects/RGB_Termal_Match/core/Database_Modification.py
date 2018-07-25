@@ -22,9 +22,6 @@ class DatabaseGeneration(Database.COLMAPDatabase):
         key_pts = np.fromstring(kp_row[3], dtype=np.float32).reshape((kp_row[1], kp_row[2]))
         dscrptrs = np.fromstring(dc_row[3], dtype=np.uint8).reshape((dc_row[1], dc_row[2]))
 
-        # img = cv2.imread(tif_path + 'images/' + im_row[1])
-        # cv2.rectangle(img, (im_row[10], im_row[12]), (im_row[11], im_row[13]), (0, 255, 0), 3)
-
         vc = 0
         ic = 0
         new_key_pts = np.zeros((0, 6), dtype=np.float32)
@@ -34,17 +31,17 @@ class DatabaseGeneration(Database.COLMAPDatabase):
             key_pt = key_pts[i]
 
             key_pt_cord = np.floor(key_pt[0:2])
-            if key_pt_cord[0] in range(im_row[10], im_row[11]) and \
-                    key_pt_cord[1] in range(im_row[12], im_row[13]):
-                vc += 1
+            if im_row[10] and im_row[11] and im_row[12] and im_row[13]:
 
-                new_dscrptrs = np.append(new_dscrptrs, dscrptrs[i].reshape(1, 128), 0)
-                new_key_pts = np.append(new_key_pts, key_pt.reshape(1, 6), 0)
-                # cv2.circle(img, (key_pt_cord[0], key_pt_cord[1]), 7, (0, 0, 255), 3)
+                if key_pt_cord[0] in range(im_row[10], im_row[11]) and \
+                        key_pt_cord[1] in range(im_row[12], im_row[13]):
+                    vc += 1
 
-            else:
-                ic += 1
-                # cv2.circle(img, (key_pt_cord[0], key_pt_cord[1]), 5, (255, 0, 0), 3)
+                    new_dscrptrs = np.append(new_dscrptrs, dscrptrs[i].reshape(1, 128), 0)
+                    new_key_pts = np.append(new_key_pts, key_pt.reshape(1, 6), 0)
+
+                else:
+                    ic += 1
 
         print('Image: {},\t\tThermal: {},\t\tValidKeyPoints: {} ({:4.1f} %)'
               .format(im_row[1], im_row[-1], vc, 100 * vc / (vc + ic)))
@@ -52,11 +49,21 @@ class DatabaseGeneration(Database.COLMAPDatabase):
         self.add_keypoints(image_id, new_key_pts)
         self.add_descriptors(image_id, new_dscrptrs)
 
-        # cv2.imshow("img", img)
-        # cv2.waitKey()
+        self.conn_new.commit()
+
+    def check_images(self, image_id):
+        im_row = self.c_org.execute("SELECT * FROM {tb} WHERE image_id={id}"
+                                    .format(tb='images', id=image_id)).fetchone()
+
+        print('Image: {},\t\tCamera: {},\t\tThermal: {}'
+              .format(im_row[1], im_row[2], im_row[-1]))
+
+        self.add_image(im_row[-1], im_row[2],
+                     prior_q=(im_row[3], im_row[4], im_row[5], im_row[6]),
+                     prior_t=(im_row[7], im_row[8], im_row[9]),
+                     image_id=im_row[0])
 
         self.conn_new.commit()
-        # super().commit()
 
     def check_matches(self, pair_id):
         pair_data = self.c_org.execute("SELECT * FROM {tb} WHERE {col}={id}"
@@ -95,21 +102,23 @@ def main(db_org, db_new):
     import os
 
     if os.path.exists(db_new):
-        print("ERROR: database path already exists -- will not modify it.")
-        return
+        print("WARNING: database already existed.\n\t\t\tNot anymore . . . !")
+        os.remove(db_new)
+        # return
 
     handler = DatabaseGeneration(db_org, db_new)
     handler.create_tables()
-    handler.check_key_points(4)
+    # handler.add_camera(2, )
+    for id in range(1, 69):
+        handler.check_images(id)
+        handler.check_key_points(id)
 
 
 if __name__ == "__main__":
     save_path = "/Users/Ardoo/Desktop/PT_5_Crop_Test3/"
     thermal_path = "/Volumes/NO NAME/PT_5/THERMAL/"
     tif_path = "/Users/Ardoo/Desktop/COLMAP_Test/"
-    db = '/Users/Ardoo/Desktop/COLMAP_Test/database2.db'
+    db = '/Users/Ardoo/Desktop/COLMAP_Test/database.db'
     db_n = '/Users/Ardoo/Desktop/COLMAP_Test/database_artificial.db'
 
     main(db, db_n)
-
-    # check_matches(2147483649, db)
