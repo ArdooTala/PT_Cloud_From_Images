@@ -7,9 +7,6 @@
     <list default="true" id="9cf57a34-c3f7-4160-8471-fb5fda13d99d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/Database_Modification.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/Database_Modification.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/Match_Files.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/Match_Files.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/ROI_Matching.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/ROI_Matching.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/Visualize_Thermal_Image.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,11 +20,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="database.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="database.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/database.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-957">
-              <caret line="153" column="4" selection-start-line="153" selection-start-column="4" selection-end-line="160" selection-end-column="31" />
+            <state relative-caret-position="1582">
+              <caret line="262" column="43" selection-start-line="262" selection-start-column="4" selection-end-line="262" selection-end-column="43" />
               <folding>
                 <element signature="e#1732#1746#0" expanded="true" />
               </folding>
@@ -38,8 +35,8 @@
       <file leaf-file-name="Database_Modification.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/Database_Modification.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
+            <state relative-caret-position="286">
+              <caret line="54" column="35" selection-start-line="54" selection-start-column="35" selection-end-line="54" selection-end-column="35" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -47,11 +44,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Match_Files.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Match_Files.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/Match_Files.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
+            <state relative-caret-position="105">
+              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -62,8 +59,8 @@
       <file leaf-file-name="ROI_Matching.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/ROI_Matching.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="70">
-              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+            <state relative-caret-position="164">
+              <caret line="108" lean-forward="true" selection-start-line="9" selection-end-line="108" />
               <folding>
                 <element signature="e#1#10#0" expanded="true" />
               </folding>
@@ -106,9 +103,9 @@
         <option value="$PROJECT_DIR$/Match_Files.py" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/core/SQLite.py" />
-        <option value="$PROJECT_DIR$/core/database.py" />
         <option value="$PROJECT_DIR$/core/ROI_Matching.py" />
         <option value="$PROJECT_DIR$/core/Match_Files.py" />
+        <option value="$PROJECT_DIR$/core/database.py" />
         <option value="$PROJECT_DIR$/core/Database_Modification.py" />
       </list>
     </option>
@@ -299,7 +296,14 @@
       <option name="project" value="LOCAL" />
       <updated>1532516636255</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Class initiation.">
+      <created>1532535327780</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1532535327781</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -340,7 +344,8 @@
     <MESSAGE value="Debugged!" />
     <MESSAGE value="Update database during cropping.&#10;Crop coordinates and thermal image will be added to database." />
     <MESSAGE value="Updated feature Detection.&#10;Thermals are now saved to the directory.&#10;KeyPoint filtering in progress." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated feature Detection.&#10;Thermals are now saved to the directory.&#10;KeyPoint filtering in progress." />
+    <MESSAGE value="Class initiation." />
+    <option name="LAST_COMMIT_MESSAGE" value="Class initiation." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/core/Match_Files.py">
@@ -594,40 +599,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/ROI_Matching.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="164">
+          <caret line="108" lean-forward="true" selection-start-line="9" selection-end-line="108" />
           <folding>
             <element signature="e#1#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/database.py">
+    <entry file="file://$PROJECT_DIR$/core/Match_Files.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-957">
-          <caret line="153" column="4" selection-start-line="153" selection-start-column="4" selection-end-line="160" selection-end-column="31" />
+        <state relative-caret-position="105">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
           <folding>
-            <element signature="e#1732#1746#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/Database_Modification.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
+        <state relative-caret-position="286">
+          <caret line="54" column="35" selection-start-line="54" selection-start-column="35" selection-end-line="54" selection-end-column="35" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/Match_Files.py">
+    <entry file="file://$PROJECT_DIR$/core/database.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
+        <state relative-caret-position="1582">
+          <caret line="262" column="43" selection-start-line="262" selection-start-column="4" selection-end-line="262" selection-end-column="43" />
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#1732#1746#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -3,14 +3,13 @@ import numpy as np
 import core.database as Database
 
 
-class DatabaseGeneration:
-    def __init__(self, original_database, new_database):
-        self.new_database = new_database
-        self.org_database = original_database
-
-        self.conn_org = sqlite3.connect(self.org_database)
+class DatabaseGeneration(Database.COLMAPDatabase):
+    def __init__(self, original_database, new_database, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.conn_org = sqlite3.connect(original_database)
         self.c_org = self.conn_org.cursor()
-        self.conn_new = sqlite3.connect(self.new_database)
+
+        self.conn_new = super().connect(new_database)
         self.c_new = self.conn_new.cursor()
 
     def check_key_points(self, image_id):
@@ -53,47 +52,54 @@ class DatabaseGeneration:
               .format(im_row[1], im_row[-1], vc, 100 * vc / (vc + ic)))
 
         #### Add these to the new database.
+        self.add_keypoints(image_id, new_key_pts)
 
         # cv2.imshow("img", img)
         # cv2.waitKey()
 
     # conn.close()
 
+    def check_matches(self, pair_id):
+        pair_data = self.c_org.execute("SELECT * FROM {tb} WHERE {col}={id}"
+                              .format(tb='matches', col='pair_id', id=pair_id)).fetchone()
 
-def check_matches(pair_id, db_original):
-    conn = sqlite3.connect(db_original)
-    c = conn.cursor()
+        image_id1, image_id2 = Database.pair_id_to_image_ids(pair_id)
 
-    pair_data = c.execute("SELECT * FROM {tb} WHERE {col}={id}"
-                          .format(tb='matches', col='pair_id', id=pair_id)).fetchone()
+        image_data1 = self.c_org.execute("SELECT * FROM {tb} WHERE {col}={id}"
+                                .format(tb='images', col='image_id', id=image_id1)).fetchone()
+        key_pt_data1 = self.c_org.execute('SELECT * FROM {tb} WHERE image_id = {id}'
+                                 .format(tb='keypoints', id=image_id1)).fetchone()
+        key_pts1 = Database.blob_to_array(key_pt_data1[3], np.float32, (key_pt_data1[1], key_pt_data1[2]))
 
-    image_id1, image_id2 = Database.pair_id_to_image_ids(pair_id)
+        image_data2 = self.c_org.execute("SELECT * FROM {tb} WHERE {col}={id}"
+                                .format(tb='images', col='image_id', id=image_id2)).fetchone()
+        key_pt_data2 = self.c_org.execute('SELECT * FROM {tb} WHERE image_id = {id}'
+                                 .format(tb='keypoints', id=image_id2)).fetchone()
+        key_pts2 = Database.blob_to_array(key_pt_data2[3], np.float32, (key_pt_data2[1], key_pt_data2[2]))
 
-    image_data1 = c.execute("SELECT * FROM {tb} WHERE {col}={id}"
-                            .format(tb='images', col='image_id', id=image_id1)).fetchone()
-    key_pt_data1 = c.execute('SELECT * FROM {tb} WHERE image_id = {id}'
-                             .format(tb='keypoints', id=image_id1)).fetchone()
-    key_pts1 = Database.blob_to_array(key_pt_data1[3], np.float32, (key_pt_data1[1], key_pt_data1[2]))
+        matched_points_array = Database.blob_to_array(pair_data[3], np.uint32, (pair_data[1], pair_data[2]))
 
-    image_data2 = c.execute("SELECT * FROM {tb} WHERE {col}={id}"
-                            .format(tb='images', col='image_id', id=image_id2)).fetchone()
-    key_pt_data2 = c.execute('SELECT * FROM {tb} WHERE image_id = {id}'
-                             .format(tb='keypoints', id=image_id2)).fetchone()
-    key_pts2 = Database.blob_to_array(key_pt_data2[3], np.float32, (key_pt_data2[1], key_pt_data2[2]))
+        for key_pt_pair in matched_points_array:
+            pt1 = np.floor(key_pts1[key_pt_pair[0]][:2])
+            pt2 = np.floor(key_pts2[key_pt_pair[1]][:2])
 
-    matched_points_array = Database.blob_to_array(pair_data[3], np.uint32, (pair_data[1], pair_data[2]))
+            if pt1[0] in range(image_data1[10], image_data1[11]) and \
+                    pt1[1] in range(image_data1[12], image_data1[13]) and \
+                    pt2[0] in range(image_data2[10], image_data2[11]) and \
+                    pt2[1] in range(image_data2[12], image_data2[13]):
+                print("Found a match!")
 
-    for key_pt_pair in matched_points_array:
-        pt1 = np.floor(key_pts1[key_pt_pair[0]][:2])
-        pt2 = np.floor(key_pts2[key_pt_pair[1]][:2])
+        # conn.close()
 
-        if pt1[0] in range(image_data1[10], image_data1[11]) and \
-                pt1[1] in range(image_data1[12], image_data1[13]) and \
-                pt2[0] in range(image_data2[10], image_data2[11]) and \
-                pt2[1] in range(image_data2[12], image_data2[13]):
-            print("Found a match!")
 
-    conn.close()
+def main(db_org, db_new):
+    import os
+
+    if os.path.exists(db_new):
+        print("ERROR: database path already exists -- will not modify it.")
+        return
+
+    handler = DatabaseGeneration(db_org, db_new)
 
 
 if __name__ == "__main__":
@@ -101,7 +107,8 @@ if __name__ == "__main__":
     thermal_path = "/Volumes/NO NAME/PT_5/THERMAL/"
     tif_path = "/Users/Ardoo/Desktop/COLMAP_Test/"
     db = '/Users/Ardoo/Desktop/COLMAP_Test/database2.db'
+    db_n = '/Users/Ardoo/Desktop/COLMAP_Test/database_artificial.db'
 
-    check_key_points(tif_path, db)
+    main(db, db_n)
 
     # check_matches(2147483649, db)
