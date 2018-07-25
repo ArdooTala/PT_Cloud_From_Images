@@ -5,20 +5,19 @@ from datetime import timedelta
 from libxmp import XMPFiles
 
 
-def match_images(rgb_path, thermal_path):
+def match_images(rgb_path, thermal_image_path):
     rgb_image = cv2.imread(rgb_path, 0)
+    rgb_image = cv2.resize(rgb_image, (1280, 960), interpolation=cv2.INTER_LINEAR)
     equ_rgb = cv2.equalizeHist(rgb_image)
     blur_rgb = cv2.blur(equ_rgb, (3, 3))
-    rgb_edges = cv2.Canny(blur_rgb, 140,
-                          200)  # cv2.Canny(blur_rgb, 50, 100)cv2.Sobel(blur_rgb, cv2.CV_8U, 0, 1, ksize=5)
+    rgb_edges = cv2.Canny(blur_rgb, 140, 200)
     rgb_edges = cv2.blur(rgb_edges, (9, 9))
 
-    template = visualize_thermal_image(thermal_path)
+    template = visualize_thermal_image(thermal_image_path)
     template = cv2.resize(template, (480, 360), interpolation=cv2.INTER_CUBIC)
     equ_template = cv2.equalizeHist(template)
     blur_template = cv2.blur(equ_template, (1, 1))
-    template_edges = cv2.Canny(blur_template, 100,
-                               200)  # cv2.Sobel(blur_template, cv2.CV_8U, 0, 1, ksize=5)cv2.Canny(blur_template, 50, 100)
+    template_edges = cv2.Canny(blur_template, 100, 200)
     template_edges = cv2.blur(template_edges, (9, 9))
 
     h, w = template.shape
@@ -36,14 +35,8 @@ def match_images(rgb_path, thermal_path):
     top_left = max_loc
     bottom_right = (top_left[0] + w, top_left[1] + h)
 
-    # cv2.imshow("J", rgb_edges)
-    # cv2.imshow("JJ", template_edges)
-    # cv2.waitKey()
-
     cv2.rectangle(rgb_image, top_left, bottom_right, 0, 2)
 
-    # cropped_image = rgb_image[top_left[1]:bottom_right[1], top_left[0]:bottom_right[0]]
-    # print(cropped_image.shape)
     return top_left, bottom_right, rgb_image  # cropped_image
 
 
@@ -65,7 +58,7 @@ def match_by_time(thermal_image_path, tif_image_path):
         for sub in subs:
             for _root, _subs, _files in os.walk(os.path.join(root, sub)):
                 for file in _files:
-                    if "GRE" in file:
+                    if "JPG" in file:
                         if '.' in _root:
                             continue
                         image_date_time = datetime.strptime(file.split('.')[0][:-8], 'IMG_%y%m%d_%H%M%S_')
@@ -116,5 +109,5 @@ if __name__ == "__main__":
     # cv2.imshow("Result", pic)
     # cv2.waitKey()
     cv2.imwrite("ROI_Image.PNG", pic)
-    plt.imshow(pic, cmap='gray')
-    plt.show()
+    # plt.imshow(pic, cmap='gray')
+    # plt.show()
