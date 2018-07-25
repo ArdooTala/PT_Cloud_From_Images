@@ -7,18 +7,22 @@ from libxmp import XMPFiles
 
 def match_images(rgb_path, thermal_image_path):
     rgb_image = cv2.imread(rgb_path, 0)
-    rgb_image = cv2.resize(rgb_image, (1280, 960), interpolation=cv2.INTER_LINEAR)
+    # rgb_image = cv2.resize(rgb_image, (1280, 960), interpolation=cv2.INTER_LINEAR)
     equ_rgb = cv2.equalizeHist(rgb_image)
-    blur_rgb = cv2.blur(equ_rgb, (3, 3))
-    rgb_edges = cv2.Canny(blur_rgb, 140, 200)
-    rgb_edges = cv2.blur(rgb_edges, (9, 9))
+    blur_rgb = cv2.blur(equ_rgb, (5, 5))
+    rgb_edges = cv2.Canny(blur_rgb, 50, 100)
+    rgb_edges = cv2.blur(rgb_edges, (3, 3))
 
     template = visualize_thermal_image(thermal_image_path)
-    template = cv2.resize(template, (480, 360), interpolation=cv2.INTER_CUBIC)
+    template = cv2.resize(template, (1728, 1296), interpolation=cv2.INTER_CUBIC)
     equ_template = cv2.equalizeHist(template)
-    blur_template = cv2.blur(equ_template, (1, 1))
-    template_edges = cv2.Canny(blur_template, 100, 200)
-    template_edges = cv2.blur(template_edges, (9, 9))
+    blur_template = cv2.blur(equ_template, (3, 3))
+    template_edges = cv2.Canny(blur_template, 40, 70)
+    template_edges = cv2.blur(template_edges, (3, 3))
+
+    # cv2.imshow("1", rgb_edges)
+    # cv2.imshow("2", template_edges)
+    # cv2.waitKey()
 
     h, w = template.shape
 

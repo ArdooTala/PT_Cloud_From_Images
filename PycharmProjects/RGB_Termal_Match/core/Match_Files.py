@@ -1,8 +1,9 @@
 from core.ROI_Matching import *
 import sqlite3
+import shutil
 
 
-def crop_and_save(images_path, thermal_images_path, save_path, save_as_mask=False, save_as_crop=True, db=None):
+def crop_and_save(images_path, thermal_images_path, saving_path, save_as_mask=False, save_as_crop=True, db=None):
     matched_files = match_by_time(thermal_images_path, images_path)
 
     if db:
@@ -47,7 +48,7 @@ def crop_and_save(images_path, thermal_images_path, save_path, save_as_mask=Fals
 
                     if save_as_crop:
                         cropped = img[y_min:y_max, x_min:x_max]
-                        file_name = save_path + file[:-4] + "_Cropped.TIF"
+                        file_name = saving_path + file[:-4] + "_Cropped.TIF"
                         print("\t" + file_name)
                         cv2.imwrite(file_name, cropped)
                         copy_xmp(os.path.join(root, file), file_name)
@@ -55,23 +56,26 @@ def crop_and_save(images_path, thermal_images_path, save_path, save_as_mask=Fals
                     if save_as_mask:
                         mask = np.zeros(img.shape)
                         mask[y_min: y_max, x_min: x_max] = 255
-                        file_name = save_path + 'Masks/' + file[:-4] + "_Mask.png"
+                        file_name = saving_path + 'Masks/' + file[:-4] + "_Mask.png"
                         print("\t" + file_name)
                         cv2.imwrite(file_name, mask)
 
                     if db:
-                        print("\nWriting to database.")
+                        print("\t\tWriting to database.")
+                        shutil.copyfile(
+                            os.path.join(thermal[0][0], thermal[0][1]),
+                            root + '/thermals/' + thermal[0][1])
                         c.execute(
                             '''UPDATE images 
                             SET (crop_y_min, crop_y_max, crop_x_min, crop_x_max) = ({0}, {1}, {2}, {3}) 
                             WHERE name = ("{4}")'''
                             .format(y_min, y_max, x_min, x_max, channel[1]))
                         c.execute('UPDATE images SET thermal_image = "{0}" WHERE name = ("{1}")'
-                                  .format(thermal[0][0]+thermal[0][1], channel[1]))
+                                  .format(thermal[0][1], channel[1]))
 
-                        print("\t\t\t\tSAVED TO DATABASE.\n\n")
+                        print("\t\t\t\tSAVED TO DATABASE.\n")
 
-    if c:
+    if conn:
         conn.commit()
         conn.close()
 
