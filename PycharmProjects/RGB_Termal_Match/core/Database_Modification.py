@@ -1,49 +1,107 @@
 import sqlite3
 import numpy as np
-import core.ROI_Matching as ROI
-import cv2
+import core.database as Database
 
 
-save_path = "/Users/Ardoo/Desktop/PT_5_Crop_Test3/"
-thermal_path = "/Volumes/NO NAME/PT_5/THERMAL/"
-tif_path = "/Users/Ardoo/Desktop/COLMAP_Test/"
+class DatabaseGeneration:
+    def __init__(self, original_database, new_database):
+        self.new_database = new_database
+        self.org_database = original_database
 
-matched_files = ROI.match_by_time(thermal_path, tif_path)
+        self.conn_org = sqlite3.connect(self.org_database)
+        self.c_org = self.conn_org.cursor()
+        self.conn_new = sqlite3.connect(self.new_database)
+        self.c_new = self.conn_new.cursor()
 
-db = '/Users/Ardoo/Desktop/COLMAP_Test/database.db'
+    def check_key_points(self, image_id):
+        kp_row = self.c_org.execute("SELECT * FROM {tb} WHERE image_id = {img}"
+                                    .format(tb='keypoints', img=image_id)).fetchone()
+        dc_row = self.c_org.execute("SELECT * FROM {tb} WHERE image_id = {img}"
+                                    .format(tb='descriptors', img=image_id)).fetchone()
 
-# Connect to database.
-conn = sqlite3.connect(db)
-c = conn.cursor()
+        im_row = self.c_org.execute("SELECT * FROM {tb} WHERE image_id={id}"
+                                    .format(tb='images', id=image_id)).fetchone()
 
-c.execute("SELECT * FROM {tb}".format(tb='keypoints',))
+        key_pts = np.fromstring(kp_row[3], dtype=np.float32).reshape((kp_row[1], kp_row[2]))
+        dscrptrs = np.fromstring(dc_row[3], dtype=np.uint8).reshape((dc_row[1], dc_row[2]))
 
-rows = c.fetchall()
-for row in rows:
-    image_row = c.execute("SELECT * FROM {tb} WHERE {col}={id}"
-        .format(tb='images', col='image_id', id=row[0])).fetchone()
+        # img = cv2.imread(tif_path + 'images/' + im_row[1])
+        # cv2.rectangle(img, (im_row[10], im_row[12]), (im_row[11], im_row[13]), (0, 255, 0), 3)
 
-    key_pts = np.fromstring(row[3], dtype=np.float32).reshape((row[1], row[2]))
+        vc = 0
+        ic = 0
+        new_key_pts = np.zeros((0, 6), dtype=np.float32)
+        new_dscrptrs = np.zeros((0, 128), dtype=np.float32)
 
-    # img = cv2.imread(tif_path + 'images/' + image_row[1])
-    # cv2.rectangle(img, (image_row[10], image_row[12]), (image_row[11], image_row[13]), (0, 255, 0), 3)
+        for i in range(len(key_pts)):
+            key_pt = key_pts[i]
 
-    vc = 0
-    ic = 0
-    for key_pt in key_pts:
-        key_pt_cord = np.floor(key_pt[0:2])
-        if key_pt_cord[0] in range(image_row[10], image_row[11]) and \
-                key_pt_cord[1] in range(image_row[12], image_row[13]):
-            # print("BINGO!\t\t>>> ", key_pt_cord)
-            vc += 1
+            key_pt_cord = np.floor(key_pt[0:2])
+            if key_pt_cord[0] in range(img_row[10], img_row[11]) and \
+                    key_pt_cord[1] in range(img_row[12], img_row[13]):
+                vc += 1
 
-            # cv2.circle(img, (key_pt_cord[0], key_pt_cord[1]), 5, (0, 0, 255), -1)
+                new_dscrptrs = np.append(new_dscrptrs, dscrptrs[i].reshape(1, 128), 0)
+                new_key_pts = np.append(new_key_pts, key_pt.reshape(1, 6), 0)
+                # cv2.circle(img, (key_pt_cord[0], key_pt_cord[1]), 7, (0, 0, 255), 3)
 
-        else:
-            ic += 1
+            else:
+                ic += 1
+                # cv2.circle(img, (key_pt_cord[0], key_pt_cord[1]), 5, (255, 0, 0), 3)
 
-            # cv2.circle(img, (key_pt_cord[0], key_pt_cord[1]), 5, (255, 0, 0), -1)
+        print('Image: {},\t\tThermal: {},\t\tValidKeyPoints: {} ({:4.1f} %)'
+              .format(im_row[1], im_row[-1], vc, 100 * vc / (vc + ic)))
 
-    print('Image: {},\t\tThermal: {},\t\tValidKeyPoints: {:4.1f} %'.format(image_row[1], image_row[-1], 100 * vc / (vc + ic)))
-    # cv2.imshow("img", img)
-    # cv2.waitKey()
+        #### Add these to the new database.
+
+        # cv2.imshow("img", img)
+        # cv2.waitKey()
+
+    # conn.close()
+
+
+def check_matches(pair_id, db_original):
+    conn = sqlite3.connect(db_original)
+    c = conn.cursor()
+
+    pair_data = c.execute("SELECT * FROM {tb} WHERE {col}={id}"
+                          .format(tb='matches', col='pair_id', id=pair_id)).fetchone()
+
+    image_id1, image_id2 = Database.pair_id_to_image_ids(pair_id)
+
+    image_data1 = c.execute("SELECT * FROM {tb} WHERE {col}={id}"
+                            .format(tb='images', col='image_id', id=image_id1)).fetchone()
+    key_pt_data1 = c.execute('SELECT * FROM {tb} WHERE image_id = {id}'
+                             .format(tb='keypoints', id=image_id1)).fetchone()
+    key_pts1 = Database.blob_to_array(key_pt_data1[3], np.float32, (key_pt_data1[1], key_pt_data1[2]))
+
+    image_data2 = c.execute("SELECT * FROM {tb} WHERE {col}={id}"
+                            .format(tb='images', col='image_id', id=image_id2)).fetchone()
+    key_pt_data2 = c.execute('SELECT * FROM {tb} WHERE image_id = {id}'
+                             .format(tb='keypoints', id=image_id2)).fetchone()
+    key_pts2 = Database.blob_to_array(key_pt_data2[3], np.float32, (key_pt_data2[1], key_pt_data2[2]))
+
+    matched_points_array = Database.blob_to_array(pair_data[3], np.uint32, (pair_data[1], pair_data[2]))
+
+    for key_pt_pair in matched_points_array:
+        pt1 = np.floor(key_pts1[key_pt_pair[0]][:2])
+        pt2 = np.floor(key_pts2[key_pt_pair[1]][:2])
+
+        if pt1[0] in range(image_data1[10], image_data1[11]) and \
+                pt1[1] in range(image_data1[12], image_data1[13]) and \
+                pt2[0] in range(image_data2[10], image_data2[11]) and \
+                pt2[1] in range(image_data2[12], image_data2[13]):
+            print("Found a match!")
+
+    conn.close()
+
+
+if __name__ == "__main__":
+    save_path = "/Users/Ardoo/Desktop/PT_5_Crop_Test3/"
+    thermal_path = "/Volumes/NO NAME/PT_5/THERMAL/"
+    tif_path = "/Users/Ardoo/Desktop/COLMAP_Test/"
+    db = '/Users/Ardoo/Desktop/COLMAP_Test/database2.db'
+
+    check_key_points(tif_path, db)
+
+    # check_matches(2147483649, db)

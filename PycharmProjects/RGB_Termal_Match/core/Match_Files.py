@@ -3,7 +3,7 @@ import sqlite3
 import shutil
 
 
-def crop_and_save(images_path, thermal_images_path, saving_path, save_as_mask=False, save_as_crop=True, db=None):
+def main(images_path, thermal_images_path, saving_path, save_as_mask=False, save_as_crop=True, db=None):
     matched_files = match_by_time(thermal_images_path, images_path)
 
     if db:
@@ -69,8 +69,8 @@ def crop_and_save(images_path, thermal_images_path, saving_path, save_as_mask=Fa
                             '''UPDATE images 
                             SET (crop_y_min, crop_y_max, crop_x_min, crop_x_max) = ({0}, {1}, {2}, {3}) 
                             WHERE name = ("{4}")'''
-                            .format(y_min, y_max, x_min, x_max, channel[1]))
-                        c.execute('UPDATE images SET thermal_image = "{0}" WHERE name = ("{1}")'
+                                .format(y_min, y_max, x_min, x_max, channel[1]))
+                        c.execute('UPDATE images SET name = "{0}" WHERE name = ("{1}")'
                                   .format(thermal[0][1], channel[1]))
 
                         print("\t\t\t\tSAVED TO DATABASE.\n")
@@ -85,7 +85,7 @@ if __name__ == "__main__":
     thermal_path = "/Volumes/NO NAME/PT_5/THERMAL/"
     tif_path = "/Users/Ardoo/Desktop/COLMAP_Test"
 
-    crop_and_save(tif_path, thermal_path, save_path,
+    main(tif_path, thermal_path, save_path,
                   save_as_crop=False,
                   save_as_mask=False,
-                  db='/Users/Ardoo/Desktop/COLMAP_Test/database.db')
+                  db='/Users/Ardoo/Desktop/COLMAP_Test/database2.db')
