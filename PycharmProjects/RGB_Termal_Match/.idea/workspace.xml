@@ -20,11 +20,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="database.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="database.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/database.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1582">
-              <caret line="262" column="43" selection-start-line="262" selection-start-column="4" selection-end-line="262" selection-end-column="43" />
+            <state relative-caret-position="2364">
+              <caret line="281" lean-forward="true" selection-start-line="281" selection-end-line="281" />
               <folding>
                 <element signature="e#1732#1746#0" expanded="true" />
               </folding>
@@ -32,11 +32,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Database_Modification.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Database_Modification.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/Database_Modification.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="54" column="35" selection-start-line="54" selection-start-column="35" selection-end-line="54" selection-end-column="35" />
+            <state relative-caret-position="-410">
+              <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -303,7 +303,14 @@
       <option name="project" value="LOCAL" />
       <updated>1532535327781</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Class inherited from COLMAPdatabase.">
+      <created>1532538410532</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1532538410533</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -345,7 +352,13 @@
     <MESSAGE value="Update database during cropping.&#10;Crop coordinates and thermal image will be added to database." />
     <MESSAGE value="Updated feature Detection.&#10;Thermals are now saved to the directory.&#10;KeyPoint filtering in progress." />
     <MESSAGE value="Class initiation." />
-    <option name="LAST_COMMIT_MESSAGE" value="Class initiation." />
+    <MESSAGE value="Class inherited from COLMAPdatabase." />
+    <option name="LAST_COMMIT_MESSAGE" value="Class inherited from COLMAPdatabase." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/core/Match_Files.py">
@@ -617,22 +630,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/Database_Modification.py">
+    <entry file="file://$PROJECT_DIR$/core/database.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="54" column="35" selection-start-line="54" selection-start-column="35" selection-end-line="54" selection-end-column="35" />
+        <state relative-caret-position="2364">
+          <caret line="281" lean-forward="true" selection-start-line="281" selection-end-line="281" />
           <folding>
-            <element signature="e#0#14#0" expanded="true" />
+            <element signature="e#1732#1746#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/database.py">
+    <entry file="file://$PROJECT_DIR$/core/Database_Modification.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1582">
-          <caret line="262" column="43" selection-start-line="262" selection-start-column="4" selection-end-line="262" selection-end-column="43" />
+        <state relative-caret-position="-410">
+          <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
           <folding>
-            <element signature="e#1732#1746#0" expanded="true" />
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -5,12 +5,10 @@ import core.database as Database
 
 class DatabaseGeneration(Database.COLMAPDatabase):
     def __init__(self, original_database, new_database, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+        super().__init__(new_database, *args, **kwargs)
         self.conn_org = sqlite3.connect(original_database)
         self.c_org = self.conn_org.cursor()
-
-        self.conn_new = super().connect(new_database)
-        self.c_new = self.conn_new.cursor()
+        self.conn_new = super()
 
     def check_key_points(self, image_id):
         kp_row = self.c_org.execute("SELECT * FROM {tb} WHERE image_id = {img}"
@@ -36,8 +34,8 @@ class DatabaseGeneration(Database.COLMAPDatabase):
             key_pt = key_pts[i]
 
             key_pt_cord = np.floor(key_pt[0:2])
-            if key_pt_cord[0] in range(img_row[10], img_row[11]) and \
-                    key_pt_cord[1] in range(img_row[12], img_row[13]):
+            if key_pt_cord[0] in range(im_row[10], im_row[11]) and \
+                    key_pt_cord[1] in range(im_row[12], im_row[13]):
                 vc += 1
 
                 new_dscrptrs = np.append(new_dscrptrs, dscrptrs[i].reshape(1, 128), 0)
@@ -51,30 +49,31 @@ class DatabaseGeneration(Database.COLMAPDatabase):
         print('Image: {},\t\tThermal: {},\t\tValidKeyPoints: {} ({:4.1f} %)'
               .format(im_row[1], im_row[-1], vc, 100 * vc / (vc + ic)))
 
-        #### Add these to the new database.
         self.add_keypoints(image_id, new_key_pts)
+        self.add_descriptors(image_id, new_dscrptrs)
 
         # cv2.imshow("img", img)
         # cv2.waitKey()
 
-    # conn.close()
+        self.conn_new.commit()
+        # super().commit()
 
     def check_matches(self, pair_id):
         pair_data = self.c_org.execute("SELECT * FROM {tb} WHERE {col}={id}"
-                              .format(tb='matches', col='pair_id', id=pair_id)).fetchone()
+                                       .format(tb='matches', col='pair_id', id=pair_id)).fetchone()
 
         image_id1, image_id2 = Database.pair_id_to_image_ids(pair_id)
 
         image_data1 = self.c_org.execute("SELECT * FROM {tb} WHERE {col}={id}"
-                                .format(tb='images', col='image_id', id=image_id1)).fetchone()
+                                         .format(tb='images', col='image_id', id=image_id1)).fetchone()
         key_pt_data1 = self.c_org.execute('SELECT * FROM {tb} WHERE image_id = {id}'
-                                 .format(tb='keypoints', id=image_id1)).fetchone()
+                                          .format(tb='keypoints', id=image_id1)).fetchone()
         key_pts1 = Database.blob_to_array(key_pt_data1[3], np.float32, (key_pt_data1[1], key_pt_data1[2]))
 
         image_data2 = self.c_org.execute("SELECT * FROM {tb} WHERE {col}={id}"
-                                .format(tb='images', col='image_id', id=image_id2)).fetchone()
+                                         .format(tb='images', col='image_id', id=image_id2)).fetchone()
         key_pt_data2 = self.c_org.execute('SELECT * FROM {tb} WHERE image_id = {id}'
-                                 .format(tb='keypoints', id=image_id2)).fetchone()
+                                          .format(tb='keypoints', id=image_id2)).fetchone()
         key_pts2 = Database.blob_to_array(key_pt_data2[3], np.float32, (key_pt_data2[1], key_pt_data2[2]))
 
         matched_points_array = Database.blob_to_array(pair_data[3], np.uint32, (pair_data[1], pair_data[2]))
@@ -100,6 +99,8 @@ def main(db_org, db_new):
         return
 
     handler = DatabaseGeneration(db_org, db_new)
+    handler.create_tables()
+    handler.check_key_points(4)
 
 
 if __name__ == "__main__":
