@@ -39,7 +39,7 @@ def main(images_path, thermal_images_path, saving_path, save_as_mask=False, save
         for root, subs, files in os.walk(channel[0]):
             for file in files:
                 if file.endswith(".JPG") and file == channel[1]:
-                    img = cv2.imread(os.path.join(root, file), -1)
+                    img = cv2.imread(os.path.join(root, file), 0)
 
                     y_min = crop[0][1]
                     y_max = crop[1][1]
@@ -47,6 +47,7 @@ def main(images_path, thermal_images_path, saving_path, save_as_mask=False, save
                     x_max = crop[1][0]
 
                     if save_as_crop:
+                        img = cv2.imread(os.path.join(root, file), -1)
                         cropped = img[y_min:y_max, x_min:x_max]
                         file_name = saving_path + file[:-4] + "_Cropped.TIF"
                         print("\t" + file_name)
@@ -61,19 +62,21 @@ def main(images_path, thermal_images_path, saving_path, save_as_mask=False, save
                         cv2.imwrite(file_name, mask)
 
                     if db:
-                        print("\t\tWriting to database.")
-                        shutil.copyfile(
-                            os.path.join(thermal[0][0], thermal[0][1]),
-                            root + '/thermals/' + thermal[0][1])
+                        img[y_min: y_max, x_min: x_max] = crop[2]
+                        cv2.imwrite(os.path.split(root)[0] + '/_thermals/' + thermal[0][1][:-5] + '.PNG', img)
+                        # shutil.copyfile(
+                        #     os.path.join(thermal[0][0], thermal[0][1]),
+                        #     os.path.split(root)[0] + '/thermals/' + thermal[0][1])
                         c.execute(
                             '''UPDATE images 
                             SET (crop_y_min, crop_y_max, crop_x_min, crop_x_max) = ({0}, {1}, {2}, {3}) 
                             WHERE name = ("{4}")'''
                                 .format(y_min, y_max, x_min, x_max, channel[1]))
-                        c.execute('UPDATE images SET name = "{0}" WHERE name = ("{1}")'
-                                  .format(thermal[0][1], channel[1]))
+                        c.execute('UPDATE images SET thermal_image = "{0}" WHERE name = ("{1}")'
+                                  .format(thermal[0][1][:-5] + '.PNG', channel[1]))
 
-                        print("\t\t\t\tSAVED TO DATABASE.\n")
+                        conn.commit()
+                        print("\t\tSAVED TO DATABASE.\n")
 
     if conn:
         conn.commit()
@@ -82,10 +85,10 @@ def main(images_path, thermal_images_path, saving_path, save_as_mask=False, save
 
 if __name__ == "__main__":
     save_path = "/Users/Ardoo/Desktop/PT_5_Crop_Test3/"
-    thermal_path = "/Volumes/NO NAME/PT_5/THERMAL/"
+    thermal_path = "/Volumes/PABLITO/THERMAL/"
     tif_path = "/Users/Ardoo/Desktop/COLMAP_Test"
 
     main(tif_path, thermal_path, save_path,
-                  save_as_crop=False,
-                  save_as_mask=False,
-                  db='/Users/Ardoo/Desktop/COLMAP_Test/database2.db')
+         save_as_crop=False,
+         save_as_mask=False,
+         db='/Users/Ardoo/Desktop/COLMAP_Test/database.db')

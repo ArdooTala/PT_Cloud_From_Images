@@ -7,26 +7,67 @@ from scipy import ndimage
 import cv2
 
 
+def mix_chanels(tif_image_path):
+    for root, subs, files in os.walk(tif_image_path):
+        for sub in subs:
+
+            for _root, _subs, _files in os.walk(os.path.join(root, sub)):
+                for file in _files:
+                    if "GRE" in file:
+                        gre = cv2.imread(os.path.join(_root, file), 0)
+                        gre = gre.reshape(gre.shape[0], gre.shape[1], 1)
+                        print(gre.shape)
+
+                    if "NIR" in file:
+                        nir = cv2.imread(os.path.join(_root, file), 0)
+                        nir = nir.reshape(nir.shape[0], nir.shape[1], 1)
+
+                    if "RED" in file:
+                        red = cv2.imread(os.path.join(_root, file), 0)
+                        red = red.reshape(red.shape[0], red.shape[1], 1)
+
+                # if not gre == None and not nir == None and not red == None:
+                mix = np.append(np.append(red, nir, 2), gre, 2)
+                cv2.imshow("mix", mix)
+                cv2.waitKey()
+
+
 def visualize_thermal_image(path):
     t_image = ndimage.imread(path, flatten=True)
-    v_image = ((t_image - t_image.min()) * 512) / max(1, (t_image.max() - t_image.min()))
+    v_image = ((t_image - t_image.min()) * 256) / max(1, (t_image.max() - t_image.min()))
     return v_image.astype(np.uint8)
 
 
 def match_images(rgb_path, thermal_image_path):
     rgb_image = cv2.imread(rgb_path, 0)
-    # rgb_image = cv2.resize(rgb_image, (1280, 960), interpolation=cv2.INTER_LINEAR)
+    # rgb_image = cv2.cvtColor(rgb_image, cv2.COLOR_BGR2GRAY)
     equ_rgb = cv2.equalizeHist(rgb_image)
-    blur_rgb = cv2.blur(equ_rgb, (5, 5))
-    rgb_edges = cv2.Canny(blur_rgb, 50, 100)
-    rgb_edges = cv2.blur(rgb_edges, (3, 3))
+    blur_rgb = cv2.GaussianBlur(equ_rgb, (11, 11), 0)
+    rgb_edges = cv2.Canny(blur_rgb, 100, 100)
+    # rgb_edges = cv2.blur(rgb_edges, (21, 21))
 
-    template = visualize_thermal_image(thermal_image_path)
+    template = cv2.imread(thermal_image_path, -1).astype('uint8')
     template = cv2.resize(template, (1728, 1296), interpolation=cv2.INTER_CUBIC)
     equ_template = cv2.equalizeHist(template)
-    blur_template = cv2.blur(equ_template, (3, 3))
-    template_edges = cv2.Canny(blur_template, 40, 70)
-    template_edges = cv2.blur(template_edges, (3, 3))
+    blur_template = cv2.GaussianBlur(equ_template, (3, 3), 0)
+    template_edges = cv2.Canny(blur_template, 50, 80)
+    # template_edges = cv2.blur(template_edges, (7, 7))
+
+    # orb = cv2.ORB_create(nfeatures=1500)
+    # kp1, ds1 = orb.detectAndCompute(blur_template, None)
+    # kp2, ds2 = orb.detectAndCompute(blur_rgb, None)
+    # bf = cv2.BFMatcher(cv2.NORM_HAMMING, crossCheck=True)
+    # matches = bf.match(ds1, ds2)
+    # matches = sorted(matches, key=lambda x: x.distance)
+    # timg2 = np.zeros(rgb_edges.shape)
+    # timg2 = cv2.drawMatches(blur_template, kp1, blur_rgb, kp2, matches[:50], timg2, flags=2)
+    # cv2.imshow("img2", timg2)
+    # cv2.waitKey()
+
+    # cv2.imshow('dst_rt', template_edges)
+    # cv2.imshow('ds_rt', rgb_edges)
+    # cv2.waitKey(0)
+    # cv2.destroyAllWindows()
 
     # cv2.imshow("1", rgb_edges)
     # cv2.imshow("2", template_edges)
@@ -49,7 +90,7 @@ def match_images(rgb_path, thermal_image_path):
 
     cv2.rectangle(rgb_image, top_left, bottom_right, 0, 2)
 
-    return top_left, bottom_right, rgb_image  # cropped_image
+    return top_left, bottom_right, equ_template  # cropped_image
 
 
 def match_by_time(thermal_image_path, tif_image_path):
@@ -110,16 +151,11 @@ def copy_xmp(original_file, target_file):
 
 
 if __name__ == "__main__":
-    thermal_path = "/Volumes/NO NAME/PT_5/THERMAL/"
+    thermal_path = "/Volumes/PABLITO/THERMAL"
     tif_path = "/Volumes/NO NAME/PT_5/DCIM/"
-    print(match_by_time(thermal_path, tif_path))
+    # for root, sub, files in os.walk(thermal_path):
+    #     for file in files:
+    #         pic = visualize_thermal_image(os.path.join(root, file))
+    #         cv2.imwrite('/Users/Ardoo/Desktop/TT/'+file[:-5]+'.PNG', pic)
 
-    ###############################################################
-
-    pic = match_images("/Volumes/NO NAME/PT_5/DCIM/0000/IMG_180621_093908_0000_GRE.TIF",
-                       "Images/Thermal_Images/20180621_113834.tiff")
-    # cv2.imshow("Result", pic)
-    # cv2.waitKey()
-    cv2.imwrite("ROI_Image.PNG", pic)
-    # plt.imshow(pic, cmap='gray')
-    # plt.show()
+    mix_chanels(tif_path)
