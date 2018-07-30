@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9cf57a34-c3f7-4160-8471-fb5fda13d99d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/Database_Modification.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/Database_Modification.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/Match_Files.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/Match_Files.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/ROI_Matching.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/ROI_Matching.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,8 +23,8 @@
       <file leaf-file-name="database.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/database.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2085">
-              <caret line="140" column="29" selection-start-line="140" selection-start-column="29" selection-end-line="140" selection-end-column="29" />
+            <state relative-caret-position="374">
+              <caret line="199" column="30" selection-start-line="199" selection-start-column="30" selection-end-line="199" selection-end-column="30" />
               <folding>
                 <element signature="e#1732#1746#0" expanded="true" />
               </folding>
@@ -49,8 +47,8 @@
       <file leaf-file-name="Match_Files.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/Match_Files.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1275">
-              <caret line="87" column="45" selection-start-line="87" selection-start-column="45" selection-end-line="87" selection-end-column="45" />
+            <state relative-caret-position="537">
+              <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -61,8 +59,8 @@
       <file leaf-file-name="ROI_Matching.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/ROI_Matching.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="48" column="48" selection-start-line="48" selection-start-column="48" selection-end-line="48" selection-end-column="48" />
+            <state relative-caret-position="-322">
+              <caret line="54" column="26" selection-start-line="54" selection-start-column="26" selection-end-line="54" selection-end-column="26" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -105,9 +103,9 @@
         <option value="$PROJECT_DIR$/Match_Files.py" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/core/SQLite.py" />
-        <option value="$PROJECT_DIR$/core/database.py" />
         <option value="$PROJECT_DIR$/core/Database_Modification.py" />
         <option value="$PROJECT_DIR$/core/Match_Files.py" />
+        <option value="$PROJECT_DIR$/core/database.py" />
         <option value="$PROJECT_DIR$/core/ROI_Matching.py" />
       </list>
     </option>
@@ -142,6 +140,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/Ardoo/PycharmProjects/RGB_Termal_Match/core/Match_Files.py" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
@@ -225,8 +224,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.Match_Files" />
-        <item itemvalue="Python.Database_Modification" />
         <item itemvalue="Python.ROI_Matching" />
+        <item itemvalue="Python.Database_Modification" />
       </list>
     </recent_temporary>
   </component>
@@ -346,20 +345,35 @@
       <option name="project" value="LOCAL" />
       <updated>1532541486257</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Image matching checkpoint.">
+      <created>1532703940243</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1532703940243</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Image matching Canny method optimized.">
+      <created>1532969676407</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1532969676407</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.4919355" visible="true" weight="0.29175475" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49300155" visible="true" weight="0.29175475" />
       <window_info anchor="bottom" id="TODO" order="11" />
-      <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.5017618" side_tool="true" weight="0.3987879" />
-      <window_info active="true" anchor="bottom" id="Run" order="7" sideWeight="0.4982382" visible="true" weight="0.3987879" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="3" sideWeight="0.5024665" side_tool="true" visible="true" weight="0.22060606" />
+      <window_info anchor="bottom" id="Find" order="6" sideWeight="0.49909583" weight="0.32848486" />
+      <window_info anchor="bottom" id="Run" order="7" sideWeight="0.49753347" visible="true" weight="0.22060606" />
       <window_info anchor="bottom" id="Version Control" order="4" weight="0.32969698" />
       <window_info anchor="bottom" id="Python Console" order="1" weight="0.32848486" />
-      <window_info id="Structure" order="2" sideWeight="0.5080645" side_tool="true" visible="true" weight="0.29175475" />
+      <window_info id="Structure" order="2" sideWeight="0.5069984" side_tool="true" visible="true" weight="0.29175475" />
       <window_info anchor="bottom" id="Terminal" order="2" weight="0.3296593" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.3987879" />
       <window_info id="Favorites" order="0" side_tool="true" weight="0.32971668" />
@@ -370,7 +384,6 @@
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="6" sideWeight="0.49909583" weight="0.32848486" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -378,6 +391,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="First_Version:&#10;Including both feature matching image by image and feature matching per directory." />
     <MESSAGE value="XMP Metadata added to cropped images." />
     <MESSAGE value="file by file Feature_Matching deleted from file.&#10;Pickling deleted from file." />
@@ -391,7 +405,10 @@
     <MESSAGE value="Class inherited from COLMAPdatabase." />
     <MESSAGE value="CLASS Debugged!" />
     <MESSAGE value="Image table fixed!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Image table fixed!" />
+    <MESSAGE value="Image matching checkpoint." />
+    <MESSAGE value="Image matching Canny method optimized." />
+    <option name="LAST_COMMIT_MESSAGE" value="Image matching Canny method optimized." />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -399,16 +416,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/core/database.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2085">
-          <caret line="140" column="29" selection-start-line="140" selection-start-column="29" selection-end-line="140" selection-end-column="29" />
-          <folding>
-            <element signature="e#1732#1746#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/Database_Modification.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="555">
@@ -659,16 +666,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/database.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2085">
-          <caret line="140" column="29" selection-start-line="140" selection-start-column="29" selection-end-line="140" selection-end-column="29" />
-          <folding>
-            <element signature="e#1732#1746#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/Database_Modification.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="555">
@@ -681,18 +678,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/Match_Files.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1275">
-          <caret line="87" column="45" selection-start-line="87" selection-start-column="45" selection-end-line="87" selection-end-column="45" />
+        <state relative-caret-position="537">
+          <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/core/database.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="199" column="30" selection-start-line="199" selection-start-column="30" selection-end-line="199" selection-end-column="30" />
+          <folding>
+            <element signature="e#1732#1746#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharmCE2018.1/python_stubs/-1830505771/cv2/cv2/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="7683" column="4" selection-start-line="7683" selection-start-column="4" selection-end-line="7683" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/core/ROI_Matching.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="48" column="48" selection-start-line="48" selection-start-column="48" selection-end-line="48" selection-end-column="48" />
+        <state relative-caret-position="-322">
+          <caret line="54" column="26" selection-start-line="54" selection-start-column="26" selection-end-line="54" selection-end-column="26" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>

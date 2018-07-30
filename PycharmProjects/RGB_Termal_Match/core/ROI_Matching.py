@@ -50,17 +50,14 @@ def match_images(rgb_path, thermal_image_path):
     rgb_img = cv2.imread(rgb_path, 1)
     r_image = rgb_img[:, :, 2]
 
-    # r_image = cv2.equalizeHist(r_image)
-    r_image = cv2.cvtColor(rgb_img, cv2.COLOR_BGR2GRAY)
-    blur_rgb = cv2.GaussianBlur(r_image, (7, 7), 5)
-    rgb_edges = cv2.Canny(blur_rgb, 60, 80)
-    # rgb_edges = cv2.Laplacian(blur_rgb, cv2.CV_8U, ksize=5)
+    r_image = cv2.equalizeHist(r_image)
+    blur_rgb = cv2.GaussianBlur(r_image, (11, 11), 15)
+    rgb_edges = cv2.Laplacian(blur_rgb, cv2.CV_8U, ksize=5)
     am = np.ma.masked_array(rgb_edges, [x < 1 for x in rgb_edges])
     md = np.ma.average(am)
-    # rgb_edges = cv2.threshold(rgb_edges, md, 255, cv2.THRESH_BINARY)[1]
-    rgb_edges = cv2.dilate(rgb_edges, np.ones((5, 5)), iterations=1)
+    rgb_edges = cv2.threshold(rgb_edges, md, 255, cv2.THRESH_BINARY)[1]
     rgb_edges = cv2.erode(rgb_edges, np.ones((3, 3)), iterations=1)
-    rgb_edges = cv2.dilate(rgb_edges, np.ones((5, 5)), iterations=1)
+    rgb_edges = cv2.dilate(rgb_edges, np.ones((3, 3)), iterations=1)
     # rgb_edges = cv2.blur(rgb_edges, (7, 7))
 
     # show(rgb_edges)
@@ -68,17 +65,18 @@ def match_images(rgb_path, thermal_image_path):
     template = cv2.imread(thermal_image_path, -1).astype('uint8')
     template = cv2.resize(template, (1728, 1296), interpolation=cv2.INTER_CUBIC)
     template = cv2.equalizeHist(template)
-    blur_template = cv2.GaussianBlur(template, (7, 7), 5)
-    template_edges = cv2.Canny(blur_template, 50, 70)
-    # template_edges = cv2.Laplacian(blur_template, cv2.CV_8U, ksize=5)
+    blur_template = cv2.GaussianBlur(template, (11, 11), 15)
+    template_edges = cv2.Laplacian(blur_template, cv2.CV_8U, ksize=5)
 
     am = np.ma.masked_array(template_edges, [x < 1 for x in template_edges])
     md = np.ma.average(am)
-    # template_edges = cv2.threshold(template_edges, md, 255, cv2.THRESH_BINARY)[1]
+    template_edges = cv2.threshold(template_edges, md, 255, cv2.THRESH_BINARY)[1]
 
-    template_edges = cv2.dilate(template_edges, np.ones((5, 5)), iterations=1)
-    template_edges = cv2.erode(template_edges, np.ones((3, 3)), iterations=1)
-    template_edges = cv2.dilate(template_edges, np.ones((5, 5)), iterations=1)
+    # template_edges = cv2.erode(template_edges, np.ones((3, 3)), iterations=1)
+    template_edges = cv2.dilate(template_edges, np.ones((3, 3)), iterations=1)
+    template_edges = cv2.erode(template_edges, np.ones((3, 3)), iterations=2)
+    template_edges = cv2.dilate(template_edges, np.ones((3, 3)), iterations=2)
+    # template_edges = cv2.dilate(template_edges, np.ones((3, 3)), iterations=1)
     # template_edges = cv2.blur(template_edges, (5, 5))
 
     # show(template_edges)
