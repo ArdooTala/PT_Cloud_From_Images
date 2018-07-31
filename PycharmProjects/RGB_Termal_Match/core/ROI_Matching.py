@@ -5,6 +5,7 @@ from libxmp import XMPFiles
 import numpy as np
 from scipy import ndimage
 import cv2
+import sqlite3
 
 
 def show(*args):
@@ -48,16 +49,12 @@ def visualize_thermal_image(path):
 
 def match_images(rgb_path, thermal_image_path):
     rgb_img = cv2.imread(rgb_path, 1)
-    r_image = rgb_img[:, :, 2]
+    # r_image = rgb_img[:, :, 2]
 
     # r_image = cv2.equalizeHist(r_image)
     r_image = cv2.cvtColor(rgb_img, cv2.COLOR_BGR2GRAY)
     blur_rgb = cv2.GaussianBlur(r_image, (7, 7), 5)
     rgb_edges = cv2.Canny(blur_rgb, 60, 80)
-    # rgb_edges = cv2.Laplacian(blur_rgb, cv2.CV_8U, ksize=5)
-    am = np.ma.masked_array(rgb_edges, [x < 1 for x in rgb_edges])
-    md = np.ma.average(am)
-    # rgb_edges = cv2.threshold(rgb_edges, md, 255, cv2.THRESH_BINARY)[1]
     rgb_edges = cv2.dilate(rgb_edges, np.ones((5, 5)), iterations=1)
     rgb_edges = cv2.erode(rgb_edges, np.ones((3, 3)), iterations=1)
     rgb_edges = cv2.dilate(rgb_edges, np.ones((5, 5)), iterations=1)
@@ -66,16 +63,10 @@ def match_images(rgb_path, thermal_image_path):
     # show(rgb_edges)
 
     template = cv2.imread(thermal_image_path, -1).astype('uint8')
-    template = cv2.resize(template, (1728, 1296), interpolation=cv2.INTER_CUBIC)
+    template = cv2.resize(template, (1728, 1217), interpolation=cv2.INTER_CUBIC)
     template = cv2.equalizeHist(template)
     blur_template = cv2.GaussianBlur(template, (7, 7), 5)
     template_edges = cv2.Canny(blur_template, 50, 70)
-    # template_edges = cv2.Laplacian(blur_template, cv2.CV_8U, ksize=5)
-
-    am = np.ma.masked_array(template_edges, [x < 1 for x in template_edges])
-    md = np.ma.average(am)
-    # template_edges = cv2.threshold(template_edges, md, 255, cv2.THRESH_BINARY)[1]
-
     template_edges = cv2.dilate(template_edges, np.ones((5, 5)), iterations=1)
     template_edges = cv2.erode(template_edges, np.ones((3, 3)), iterations=1)
     template_edges = cv2.dilate(template_edges, np.ones((5, 5)), iterations=1)
@@ -114,25 +105,24 @@ def match_images(rgb_path, thermal_image_path):
     overlap[:, :, 0] = rgb_edges
     overlap[top_left[1]:bottom_right[1], top_left[0]:bottom_right[0], 2] = template_edges
 
-    show(overlap)
+    # show(overlap)
 
     return top_left, bottom_right, template  # cropped_image
 
 
 def match_by_time(thermal_image_path, tif_image_path):
-    """
     thermal_images_times = {}
     for root, subs, files in os.walk(thermal_image_path):
         for file in files:
             try:
-                thermal_images_times[(root, file)] = datetime.strptime(file.split('.')[0], '%Y%m%d_%H%M%S')
+                thermal_images_times[(root, file)] = \
+                    datetime.strptime(file.split('.')[0], '%Y%m%d_%H%M%S')
             except:
                 pass
-            """
 
     sync_time = timedelta(hours=1, minutes=59, seconds=26)
 
-    rgb_images_times = {}
+    rgb_date_times = {}
     for root, subs, files in os.walk(tif_image_path):
         for sub in subs:
             for _root, _subs, _files in os.walk(os.path.join(root, sub)):
@@ -141,10 +131,12 @@ def match_by_time(thermal_image_path, tif_image_path):
                 for file in _files:
                     if "JPG" in file:
                         try:
-                            image_date_time = datetime.strptime(file.split('.')[0][:-8], 'IMG_%y%m%d_%H%M%S_')
+                            image_date_time = datetime.strptime(
+                                file.split('.')[0][:-8], 'IMG_%y%m%d_%H%M%S_'
+                            )
                             image_date_time += sync_time
 
-                            rgb_images_times[(_root, file)] = image_date_time
+                            rgb_date_times[(_root, file)] = image_date_time
                         except:
                             pass
 
@@ -160,13 +152,13 @@ def match_by_time(thermal_image_path, tif_image_path):
                 continue
 
             closest_image = sorted(
-                list(rgb_images_times.keys())[:],
-                key=lambda x: abs(thermal_images_time - rgb_images_times[x]))[0]
+                list(rgb_date_times.keys())[:],
+                key=lambda x: abs(thermal_images_time - rgb_date_times[x]))[0]
 
-            time_span = abs(thermal_images_time - rgb_images_times[closest_image])
-            print(time_span)
+            time_span = abs(thermal_images_time - rgb_date_times[closest_image])
+            print("_____________________________")
             if time_span < timedelta(seconds=1):
-                print(rgb_images_times[closest_image], closest_image[1], '\t', time_span)
+                print(file, "\t", closest_image[1], '\t', time_span)
                 counter += 1
                 matched_files[closest_image] = ((root, file), time_span)
             else:
@@ -198,7 +190,7 @@ def match_by_time(thermal_image_path, tif_image_path):
                             print("    No Image Found!")
     """
     print("{} out of {} thermal images matched with RGB images.".format(len(matched_files),
-                                                                        len(rgb_images_times.items())))
+                                                                        len(rgb_date_times.items())))
     print("%d images saved to dict." % counter)
 
     return matched_files
@@ -216,9 +208,107 @@ def copy_xmp(original_file, target_file):
     print("\tXMP Updated!")
 
 
+def main(images_path, thermal_images_path, saving_path,
+         save_as_mask=False, save_as_crop=True, db=None):
+
+    matched_files = match_by_time(thermal_images_path, images_path)
+
+    if db:
+        print("Initializing database.")
+        conn = sqlite3.connect(db)
+        c = conn.cursor()
+
+        try:
+            c.execute("ALTER TABLE images ADD COLUMN 'crop_x_min' INTEGER")
+        except:
+            pass
+        try:
+            c.execute("ALTER TABLE images ADD COLUMN 'crop_x_max' INTEGER")
+        except:
+            pass
+        try:
+            c.execute("ALTER TABLE images ADD COLUMN 'crop_y_min' INTEGER")
+        except:
+            pass
+        try:
+            c.execute("ALTER TABLE images ADD COLUMN 'crop_y_max' INTEGER")
+        except:
+            pass
+        try:
+            c.execute("ALTER TABLE images ADD COLUMN 'thermal_image' TEXT")
+        except:
+            pass
+
+    for channel, thermal in matched_files.items():
+        print(thermal[0][1])
+        print(channel[1])
+        crop = match_images(
+            os.path.join(channel[0], channel[1]),
+            os.path.join(thermal[0][0], thermal[0][1])
+        )
+        for root, subs, files in os.walk(channel[0]):
+            for file in files:
+                if file.endswith(".JPG") and file == channel[1]:
+                    img = cv2.imread(os.path.join(root, file), 0)
+
+                    y_min = crop[0][1]
+                    y_max = crop[1][1]
+                    x_min = crop[0][0]
+                    x_max = crop[1][0]
+
+                    if save_as_crop:
+                        img = cv2.imread(os.path.join(root, file), -1)
+                        cropped = img[y_min:y_max, x_min:x_max]
+                        file_name = saving_path + file[:-4] + "_Cropped.TIF"
+                        print("\t" + file_name)
+                        cv2.imwrite(file_name, cropped)
+                        copy_xmp(os.path.join(root, file), file_name)
+
+                    if save_as_mask:
+                        mask = np.zeros(img.shape)
+                        mask[y_min: y_max, x_min: x_max] = 255
+                        file_name = saving_path + 'Masks/' \
+                                    + file[:-4] + "_Mask.png"
+                        print("\t" + file_name)
+                        cv2.imwrite(file_name, mask)
+
+                    if db:
+                        img[y_min: y_max, x_min: x_max] = crop[2]
+                        cv2.imwrite(os.path.split(root)[0] + '/_thermals/' + \
+                                    thermal[0][1][:-5] + '.PNG', img)
+                        # shutil.copyfile(
+                        #     os.path.join(thermal[0][0], thermal[0][1]),
+                        #     os.path.split(root)[0] + '/thermals/' + thermal[0][1])
+                        c.execute(
+                            '''UPDATE images 
+                            SET (crop_y_min, crop_y_max, 
+                                 crop_x_min, crop_x_max) = ({0}, {1}, {2}, {3}) 
+                            WHERE name = ("{4}")'''
+                                .format(y_min, y_max, x_min, x_max, channel[1]))
+                        c.execute('UPDATE images SET thermal_image = "{0}" WHERE name = ("{1}")'
+                                  .format(thermal[0][1][:-5] + '.PNG', channel[1]))
+
+                        conn.commit()
+                        print("\t\tSAVED TO DATABASE.\n")
+
+    if conn:
+        conn.commit()
+        conn.close()
+
+
+# if __name__ == "__main__":
+#     thermal_path = "/Volumes/PABLITO/THERMAL"
+#     tif_path = "/Volumes/NO NAME/PT_5/DCIM/"
+#     rgb = "/Users/Ardoo/Desktop/COLMAP_Test/Images/IMG_180621_095004_0000_RGB.JPG"
+#     thermal = "/Users/Ardoo/Desktop/COLMAP_Test/thermals/20180621_114931.PNG"
+#     match_images(rgb, thermal)
+
 if __name__ == "__main__":
-    thermal_path = "/Volumes/PABLITO/THERMAL"
-    tif_path = "/Volumes/NO NAME/PT_5/DCIM/"
-    rgb = "/Users/Ardoo/Desktop/COLMAP_Test/Images/IMG_180621_095004_0000_RGB.JPG"
-    thermal = "/Users/Ardoo/Desktop/COLMAP_Test/thermals/20180621_114931.PNG"
-    match_images(rgb, thermal)
+    save_path = "/Users/Ardoo/Desktop/PT_5_Crop_Test3/"
+    thermal_path = "/Volumes/PABLITO/THERMAL/"
+    tif_path = "/Users/Ardoo/Desktop/COLMAP_Test"
+
+    main(tif_path, thermal_path, save_path,
+         save_as_crop=False,
+         save_as_mask=False,
+         db='/Users/Ardoo/Desktop/COLMAP_Test/database.db')
