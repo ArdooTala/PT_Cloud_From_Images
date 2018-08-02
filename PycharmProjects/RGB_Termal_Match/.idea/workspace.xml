@@ -4,10 +4,8 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9cf57a34-c3f7-4160-8471-fb5fda13d99d" name="Default" comment="Backup . . . LCD Broken!">
+    <list default="true" id="9cf57a34-c3f7-4160-8471-fb5fda13d99d" name="Default" comment="New Structure.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/Database_Modification.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/ROI_Matching.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,30 +17,32 @@
     <session id="-1791515083">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="2199" />
-          <entry key="txt" value="24" />
+          <entry key="dummy" value="1" />
+          <entry key="py" value="4520" />
+          <entry key="txt" value="39" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="24" />
-          <entry key="Python" value="2199" />
+          <entry key="PLAIN_TEXT" value="40" />
+          <entry key="Python" value="4520" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="9" />
+          <entry key="Python" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="9" />
+          <entry key="py" value="11" />
         </counts>
       </usages-collector>
     </session>
@@ -53,62 +53,30 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/colmapScripts/database.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3405">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
-              <folding>
-                <element signature="e#1732#1746#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/colmapScripts/read_model.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
-              <folding>
-                <element signature="e#1663#1672#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NoumenaRobotics/Reconstruct.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="38" lean-forward="true" selection-start-column="38" selection-end-column="38" />
+            <state relative-caret-position="660">
+              <caret line="45" column="38" lean-forward="true" selection-start-line="45" selection-start-column="38" selection-end-line="45" selection-end-column="38" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/NoumenaRobotics/Database_Modification.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="31" lean-forward="true" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
-              <folding>
-                <element signature="e#0#14#0" expanded="true" />
-                <element signature="e#2764#4600#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NoumenaRobotics/ROI_Matching.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1425">
-              <caret line="134" column="51" selection-start-line="134" selection-start-column="51" selection-end-line="134" selection-end-column="51" />
+            <state relative-caret-position="233">
+              <caret line="17" column="53" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
-                <element signature="e#218#595#0" />
-                <element signature="e#178#358#0" />
-                <element signature="e#399#1385#0" />
-                <element signature="e#1427#1597#0" />
+                <element signature="e#587#957#0" />
+                <element signature="e#1023#1243#0" />
+                <element signature="e#1281#1831#0" />
+                <element signature="e#1890#2358#0" />
+                <element signature="e#2405#2802#0" />
+                <element signature="e#2868#3922#0" />
+                <element signature="e#9018#10444#0" />
+                <element signature="e#10567#13721#0" />
+                <marker date="1533232540558" expanded="true" signature="226:2328" ph="..." />
               </folding>
             </state>
           </provider>
@@ -162,10 +130,11 @@
         <option value="$PROJECT_DIR$/core/Reconstruct.py" />
         <option value="$PROJECT_DIR$/core/ROI_Matching.py" />
         <option value="$PROJECT_DIR$/NoumenaRobotics/Reconstruct.py" />
+        <option value="$PROJECT_DIR$/NoumenaRobotics/ROI_Matching.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="777" />
     <option name="height" value="410" />
   </component>
@@ -175,6 +144,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -196,7 +166,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -204,6 +173,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/colmapScripts" />
       <recent name="$PROJECT_DIR$/core" />
       <recent name="$PROJECT_DIR$/Images/Camera_Images" />
     </key>
@@ -220,8 +190,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Reconstruct">
-    <configuration name="Database_Modification" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.Reconstruct (1)">
+    <configuration name="ROI_Matching (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="RGB_Termal_Match" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -229,11 +199,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/core" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/NoumenaRobotics" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/core/Database_Modification.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/NoumenaRobotics/ROI_Matching.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -263,6 +233,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Reconstruct (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="RGB_Termal_Match" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/NoumenaRobotics" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/NoumenaRobotics/Reconstruct.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Reconstruct" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="RGB_Termal_Match" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -276,27 +267,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/core/Reconstruct.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="database" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="RGB_Termal_Match" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/core" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/colmapScripts/database.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -327,19 +297,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.Database_Modification" />
       <item itemvalue="Python.ROI_Matching" />
-      <item itemvalue="Python.database" />
       <item itemvalue="Python.read_model" />
       <item itemvalue="Python.Reconstruct" />
+      <item itemvalue="Python.Reconstruct (1)" />
+      <item itemvalue="Python.ROI_Matching (1)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Reconstruct (1)" />
+        <item itemvalue="Python.ROI_Matching (1)" />
         <item itemvalue="Python.Reconstruct" />
         <item itemvalue="Python.read_model" />
         <item itemvalue="Python.ROI_Matching" />
-        <item itemvalue="Python.Database_Modification" />
-        <item itemvalue="Python.database" />
       </list>
     </recent_temporary>
   </component>
@@ -466,31 +436,39 @@
       <option name="project" value="LOCAL" />
       <updated>1533042537186</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="New Structure.">
+      <created>1533207803332</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1533207803332</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.40470296" visible="true" weight="0.15522175" />
-      <window_info id="Structure" order="1" sideWeight="0.509901" side_tool="true" weight="0.40194175" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5027726" visible="true" weight="0.15665236" />
+      <window_info id="Structure" order="1" sideWeight="0.49722737" side_tool="true" visible="true" weight="0.15665236" />
       <window_info anchor="bottom" id="Inspection Results" order="0" weight="0.3296593" />
       <window_info anchor="bottom" id="Python Console" order="1" weight="0.32848486" />
       <window_info anchor="bottom" id="Terminal" order="2" weight="0.3296593" />
-      <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.50214595" side_tool="true" visible="true" weight="0.36746988" />
+      <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.26609442" side_tool="true" visible="true" weight="0.34819278" />
       <window_info anchor="bottom" id="Version Control" order="4" weight="0.32920793" />
       <window_info anchor="bottom" id="Message" order="5" />
-      <window_info anchor="bottom" id="Find" order="6" sideWeight="0.49909583" weight="0.32848486" />
-      <window_info anchor="bottom" id="Run" order="7" sideWeight="0.49785408" visible="true" weight="0.36746988" />
+      <window_info anchor="bottom" id="Find" order="6" sideWeight="0.49499285" weight="0.32771084" />
+      <window_info active="true" anchor="bottom" id="Run" order="7" sideWeight="0.73390555" visible="true" weight="0.34819278" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.39759037" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="11" />
+      <window_info anchor="right" x="0" y="0" width="310" height="700" id="Documentation" side_tool="true" weight="0.3297568" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Favorites" order="3" sideWeight="0.59529704" visible="true" weight="0.2453505" />
+      <window_info anchor="right" id="Favorites" order="3" sideWeight="0.59529704" weight="0.2453505" />
     </layout>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -538,7 +516,8 @@
     <MESSAGE value="CLASS Debugged!" />
     <MESSAGE value="Image table fixed!" />
     <MESSAGE value="Backup . . . LCD Broken!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Backup . . . LCD Broken!" />
+    <MESSAGE value="New Structure." />
+    <option name="LAST_COMMIT_MESSAGE" value="New Structure." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Images/Camera_Images/0001/IMG_180621_093916_0000_GRE.TIF">
@@ -594,17 +573,17 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="text-editor">
-        <state>
-          <caret column="22" lean-forward="true" selection-start-column="22" selection-end-column="22" />
-        </state>
-      </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="60">
             <caret line="4" selection-start-line="4" selection-end-line="7" selection-end-column="26" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state>
+          <caret column="22" lean-forward="true" selection-start-column="22" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -624,16 +603,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/Match_Files.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="92" selection-start-line="92" selection-end-line="100" selection-end-column="59" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/core/Match_Files.py" />
     <entry file="file://$USER_HOME$/colmap/scripts/python/read_dense.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="900">
@@ -645,9 +615,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
           <caret line="39" column="21" lean-forward="true" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
-          <folding>
-            <element signature="e#1663#1681#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -666,34 +633,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/numpy/core/arrayprint.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-124">
+          <caret line="451" selection-start-line="451" selection-end-line="451" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/colmapScripts/database.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3405">
+        <state relative-caret-position="-1689">
           <caret line="13" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="e#1732#1746#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NoumenaRobotics/ROI_Matching.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1425">
-          <caret line="134" column="51" selection-start-line="134" selection-start-column="51" selection-end-line="134" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-            <element signature="e#218#595#0" />
-            <element signature="e#178#358#0" />
-            <element signature="e#399#1385#0" />
-            <element signature="e#1427#1597#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NoumenaRobotics/Reconstruct.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="38" lean-forward="true" selection-start-column="38" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -701,9 +651,31 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" column="31" lean-forward="true" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NoumenaRobotics/Reconstruct.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="45" column="38" lean-forward="true" selection-start-line="45" selection-start-column="38" selection-end-line="45" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NoumenaRobotics/ROI_Matching.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="17" column="53" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
           <folding>
-            <element signature="e#0#14#0" expanded="true" />
-            <element signature="e#2764#4600#0" />
+            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#587#957#0" />
+            <element signature="e#1023#1243#0" />
+            <element signature="e#1281#1831#0" />
+            <element signature="e#1890#2358#0" />
+            <element signature="e#2405#2802#0" />
+            <element signature="e#2868#3922#0" />
+            <element signature="e#9018#10444#0" />
+            <element signature="e#10567#13721#0" />
+            <marker date="1533232540558" expanded="true" signature="226:2328" ph="..." />
           </folding>
         </state>
       </provider>
