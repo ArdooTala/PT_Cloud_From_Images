@@ -9,5 +9,5 @@ setup(
     author='Ardeshir Talaei',
     author_email='ardeshir.talaei@iaac.net',
     description='Matching thermal images and different channels.',
-    install_requires=['opencv-python', 'numpy', 'scipy', 'matplotlib']
+    install_requires=['opencv-python', 'numpy', 'scipy', 'matplotlib', 'python-xmp-toolkit']
 )
