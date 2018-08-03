@@ -4,7 +4,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9cf57a34-c3f7-4160-8471-fb5fda13d99d" name="Default" comment="New Structure.">
+    <list default="true" id="9cf57a34-c3f7-4160-8471-fb5fda13d99d" name="Default" comment="MultiProcessing Enabled.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,22 +17,23 @@
     <session id="-1791515083">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.18" value="1" />
-          <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.8" value="2" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="1" />
-          <entry key="py" value="4520" />
-          <entry key="txt" value="39" />
+          <entry key="py" value="5505" />
+          <entry key="txt" value="97" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="40" />
-          <entry key="Python" value="4520" />
+          <entry key="PLAIN_TEXT" value="98" />
+          <entry key="Python" value="5505" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -52,31 +53,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/NoumenaRobotics/Reconstruct.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="45" column="38" lean-forward="true" selection-start-line="45" selection-start-column="38" selection-end-line="45" selection-end-column="38" />
+            <state relative-caret-position="1176">
+              <caret line="79" column="14" lean-forward="true" selection-start-line="79" selection-start-column="14" selection-end-line="79" selection-end-column="14" />
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NoumenaRobotics/ROI_Matching.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="17" column="53" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
+            <state relative-caret-position="224">
+              <caret line="149" column="24" lean-forward="true" selection-start-line="149" selection-start-column="24" selection-end-line="149" selection-end-column="24" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
-                <element signature="e#587#957#0" />
-                <element signature="e#1023#1243#0" />
-                <element signature="e#1281#1831#0" />
-                <element signature="e#1890#2358#0" />
-                <element signature="e#2405#2802#0" />
-                <element signature="e#2868#3922#0" />
-                <element signature="e#9018#10444#0" />
-                <element signature="e#10567#13721#0" />
-                <marker date="1533232540558" expanded="true" signature="226:2328" ph="..." />
+                <marker date="1533293687340" expanded="true" signature="205:2318" ph="..." />
               </folding>
             </state>
           </provider>
@@ -129,12 +125,12 @@
         <option value="$PROJECT_DIR$/core/read_model.py" />
         <option value="$PROJECT_DIR$/core/Reconstruct.py" />
         <option value="$PROJECT_DIR$/core/ROI_Matching.py" />
-        <option value="$PROJECT_DIR$/NoumenaRobotics/Reconstruct.py" />
         <option value="$PROJECT_DIR$/NoumenaRobotics/ROI_Matching.py" />
+        <option value="$PROJECT_DIR$/NoumenaRobotics/Reconstruct.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
     <option name="width" value="777" />
     <option name="height" value="410" />
   </component>
@@ -144,7 +140,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -166,6 +161,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -443,32 +439,39 @@
       <option name="project" value="LOCAL" />
       <updated>1533207803332</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="ROI Class up and running.">
+      <created>1533232800289</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1533232800289</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5027726" visible="true" weight="0.15665236" />
-      <window_info id="Structure" order="1" sideWeight="0.49722737" side_tool="true" visible="true" weight="0.15665236" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5009242" visible="true" weight="0.15879828" />
+      <window_info id="Structure" order="1" sideWeight="0.4990758" side_tool="true" visible="true" weight="0.15879828" />
       <window_info anchor="bottom" id="Inspection Results" order="0" weight="0.3296593" />
       <window_info anchor="bottom" id="Python Console" order="1" weight="0.32848486" />
       <window_info anchor="bottom" id="Terminal" order="2" weight="0.3296593" />
-      <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.26609442" side_tool="true" visible="true" weight="0.34819278" />
+      <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.3025751" side_tool="true" visible="true" weight="0.34819278" />
       <window_info anchor="bottom" id="Version Control" order="4" weight="0.32920793" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Find" order="6" sideWeight="0.49499285" weight="0.32771084" />
-      <window_info active="true" anchor="bottom" id="Run" order="7" sideWeight="0.73390555" visible="true" weight="0.34819278" />
+      <window_info active="true" anchor="bottom" id="Run" order="7" sideWeight="0.6974249" visible="true" weight="0.34819278" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.39759037" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="11" />
-      <window_info anchor="right" x="0" y="0" width="310" height="700" id="Documentation" side_tool="true" weight="0.3297568" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Favorites" order="3" sideWeight="0.59529704" weight="0.2453505" />
+      <window_info anchor="right" x="0" y="0" width="310" height="700" id="Documentation" order="4" side_tool="true" weight="0.3297568" />
     </layout>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -517,7 +520,8 @@
     <MESSAGE value="Image table fixed!" />
     <MESSAGE value="Backup . . . LCD Broken!" />
     <MESSAGE value="New Structure." />
-    <option name="LAST_COMMIT_MESSAGE" value="New Structure." />
+    <MESSAGE value="ROI Class up and running." />
+    <option name="LAST_COMMIT_MESSAGE" value="ROI Class up and running." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Images/Camera_Images/0001/IMG_180621_093916_0000_GRE.TIF">
@@ -654,28 +658,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NoumenaRobotics/Reconstruct.py">
+    <entry file="file://$PROJECT_DIR$/NoumenaRobotics/ROI_Matching.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="45" column="38" lean-forward="true" selection-start-line="45" selection-start-column="38" selection-end-line="45" selection-end-column="38" />
+        <state relative-caret-position="224">
+          <caret line="149" column="24" lean-forward="true" selection-start-line="149" selection-start-column="24" selection-end-line="149" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+            <marker date="1533293687340" expanded="true" signature="205:2318" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NoumenaRobotics/ROI_Matching.py">
+    <entry file="file://$PROJECT_DIR$/NoumenaRobotics/Reconstruct.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="17" column="53" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
+        <state relative-caret-position="1176">
+          <caret line="79" column="14" lean-forward="true" selection-start-line="79" selection-start-column="14" selection-end-line="79" selection-end-column="14" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
-            <element signature="e#587#957#0" />
-            <element signature="e#1023#1243#0" />
-            <element signature="e#1281#1831#0" />
-            <element signature="e#1890#2358#0" />
-            <element signature="e#2405#2802#0" />
-            <element signature="e#2868#3922#0" />
-            <element signature="e#9018#10444#0" />
-            <element signature="e#10567#13721#0" />
-            <marker date="1533232540558" expanded="true" signature="226:2328" ph="..." />
+            <element signature="e#0#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
