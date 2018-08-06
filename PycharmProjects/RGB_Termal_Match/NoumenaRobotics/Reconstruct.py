@@ -2,7 +2,6 @@ from colmapScripts.read_model import *
 from NoumenaRobotics.ROI_Matching import ImageUtils
 from multiprocessing import Pool, cpu_count
 import cv2
-from mpl_toolkits.mplot3d import Axes3D
 
 
 def mi(path):
@@ -10,16 +9,14 @@ def mi(path):
 
 
 def main(rgbs_path, thermals_path):
-    cameras, images, points3D = read_model(path='/Users/Ardoo/Desktop/COLMAP_Test/Exports/TXT0/',
-                                           ext=".txt")
+    cameras, images, points3D = \
+        read_model(path='/Users/Ardoo/Desktop/COLMAP_Test/Exports/TXT0/',
+                   ext=".txt")
 
     print("num_cameras:", len(cameras))
     print("num_images:", len(images))
     print("num_points3D:", len(points3D))
     print("\n\________(o_O)________/\n")
-
-    # matched_files = matchByTime(thermals_path, rgbs_path)
-    # rgb_root = list(matched_files.keys())[0][0]
 
     ImageUtils.importThermalImages(thermals_path)
 
@@ -27,14 +24,10 @@ def main(rgbs_path, thermals_path):
         paths = [(root, file) for file in files if file.endswith('.JPG')]
         print("CPU cores available: %d" % cpu_count())
 
-        # imgLst = (ImageUtils(path) for path in paths)
-
         with Pool(cpu_count()) as pool:
             print("~~~~ Into the pool ~~~~~~~~~~~~~~~~~~~~~~~~")
             imgLst = pool.map(mi, paths)
             print("And OUT!")
-
-        # imgLst = [ImageUtils(path) for path in paths]
 
         imgs = {imgUtl.file: imgUtl for imgUtl in imgLst}
 
@@ -68,29 +61,23 @@ def main(rgbs_path, thermals_path):
 
         # ImageUtils.show(img)
 
-    # fig = plt.figure()
-    # ax = fig.add_subplot(111, projection='3d')
-    with open("/Volumes/SHARED/points3D.txt", 'w') as f:
+    with open("points3D.txt", 'w') as f:
 
-        print("Drawing Thermal Points . . .")
+        print("\nDrawing Thermal Points . . .")
         for item in point_cloud.items():
             loc = points3D[item[0]].xyz
             color = int(sum(item[1]) / len(item[1]))
             f.write("x{} y{} z{} col{}\n"
                     .format(loc[0], loc[1], loc[2], color))
-            # ax.scatter(loc[0], loc[1], loc[2], s=1,
-            #            cmap='magma', c=(color,), vmin=0, vmax=255)
 
-        print("Drawing Undetected Points . . .")
+        print("Drawing Undetected Points . . .\n")
         for p3Did in list(points3D.keys()):
             if p3Did not in list(point_cloud.keys()):
                 loc = points3D[p3Did].xyz
                 f.write("x{} y{} z{} col_\n"
                         .format(loc[0], loc[1], loc[2]))
                 # ax.scatter(loc[0], loc[1], loc[2], s=1, c='g')
-    print("\nDrawing Done!\n")
-
-    # plt.show()
+    print("Drawing Done.\n")
 
     # for item in point_cloud.items():
     #     print("\nPoint3D: {}\t\tValues: {} < {}\t[{}]"
