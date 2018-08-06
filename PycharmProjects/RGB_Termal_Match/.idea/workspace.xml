@@ -9677,21 +9677,6 @@
       <change afterPath="$USER_HOME$/Desktop/Documents/Screen Shot 2018-05-04 at 23.56.59.png" afterDir="false" />
       <change afterPath="$USER_HOME$/Desktop/Documents/Untitled 1.pdf" afterDir="false" />
       <change afterPath="$USER_HOME$/Desktop/Documents/Untitled 2.pdf" afterDir="false" />
-      <change afterPath="$USER_HOME$/Desktop/Scholarship/Ardeshir Recommendation Letter Signed.pdf" afterDir="false" />
-      <change afterPath="$USER_HOME$/Desktop/Scholarship/Ardeshir Talaei(Mehran Davari).pdf" afterDir="false" />
-      <change afterPath="$USER_HOME$/Desktop/Scholarship/Ardeshir Talaei_CV.pdf" afterDir="false" />
-      <change afterPath="$USER_HOME$/Desktop/Scholarship/Ardeshir Talaei_Degree.pdf" afterDir="false" />
-      <change afterPath="$USER_HOME$/Desktop/Scholarship/Ardeshir Talaei_Essay.pdf" afterDir="false" />
-      <change afterPath="$USER_HOME$/Desktop/Scholarship/Ardeshir Talaei_Motivational Letter.pdf" afterDir="false" />
-      <change afterPath="$USER_HOME$/Desktop/Scholarship/Ardeshir Talaei_Passport.pdf" afterDir="false" />
-      <change afterPath="$USER_HOME$/Desktop/Scholarship/Ardeshir Talaei_Portfolio.pdf" afterDir="false" />
-      <change afterPath="$USER_HOME$/Desktop/Scholarship/Ardeshir Talaei_Recommendation Letters.pdf" afterDir="false" />
-      <change afterPath="$USER_HOME$/Desktop/Scholarship/Links.txt" afterDir="false" />
-      <change afterPath="$USER_HOME$/Desktop/Scholarship/Proof.jpg" afterDir="false" />
-      <change afterPath="$USER_HOME$/Desktop/Scholarship/Recommendation(Zubin Khabazi).pdf" afterDir="false" />
-      <change afterPath="$USER_HOME$/Desktop/Unity/AR-Test.unitypackage" afterDir="false" />
-      <change afterPath="$USER_HOME$/Desktop/Unity/stones.jpg" afterDir="false" />
-      <change afterPath="$USER_HOME$/Desktop/Unity/vuforia-unity-6-2-10.unitypackage" afterDir="false" />
       <change afterPath="$USER_HOME$/Desktop/Untitled-1.indd" afterDir="false" />
       <change afterPath="$USER_HOME$/Desktop/[CV]Golnar_Gohari/CV Folder/ARGO CV.indd" afterDir="false" />
       <change afterPath="$USER_HOME$/Desktop/[CV]Golnar_Gohari/CV Folder/CV Gol.indd" afterDir="false" />
@@ -9767,7 +9752,6 @@
       <change afterPath="$USER_HOME$/Desktop/[CV]Golnar_Gohari/Skills2.xlsx" afterDir="false" />
       <change afterPath="$USER_HOME$/Desktop/[CV]Golnar_Gohari/[CV]Golnar_Gohari.pdf" afterDir="false" />
       <change afterPath="$USER_HOME$/Desktop/[CV]Golnar_Gohari/mindly.pdf" afterDir="false" />
-      <change afterPath="$USER_HOME$/Desktop/invoice template teaching assistants gss 2018.docx" afterDir="false" />
       <change afterPath="$USER_HOME$/Desktop/nero-camera-master/.gitignore" afterDir="false" />
       <change afterPath="$USER_HOME$/Desktop/nero-camera-master/Dockerfile/Dockerfile" afterDir="false" />
       <change afterPath="$USER_HOME$/Desktop/nero-camera-master/FlirVuePro/FlirVuePro.ino" afterDir="false" />
@@ -16429,6 +16413,8 @@
       <change afterPath="$APPLICATION_CONFIG_DIR$/port.lock" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../PyImageSearchGuru/venv/lib/python3.6/site-packages/setuptools-39.1.0-py3.6.egg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NoumenaRobotics/ROI_Matching.py" beforeDir="false" afterPath="$PROJECT_DIR$/NoumenaRobotics/ROI_Matching.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NoumenaRobotics/Reconstruct.py" beforeDir="false" afterPath="$PROJECT_DIR$/NoumenaRobotics/Reconstruct.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16440,34 +16426,35 @@
     <session id="-1791515083">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.18" value="1" />
+          <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="2" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="1" />
-          <entry key="py" value="5513" />
+          <entry key="py" value="6523" />
           <entry key="txt" value="162" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="163" />
-          <entry key="Python" value="5513" />
+          <entry key="Python" value="6523" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Python" value="18" />
+          <entry key="Python" value="19" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="18" />
+          <entry key="py" value="19" />
           <entry key="txt" value="2" />
         </counts>
       </usages-collector>
@@ -16477,12 +16464,16 @@
     <favorites_list name="RGB_Termal_Match" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/NoumenaRobotics/Reconstruct.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-900">
-              <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
+            <state relative-caret-position="-569">
+              <caret line="31" column="29" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
+                <marker date="1533555408649" expanded="true" signature="201:232" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -16490,11 +16481,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NoumenaRobotics/ROI_Matching.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="66" selection-start-line="66" selection-end-line="66" />
+            <state relative-caret-position="273">
+              <caret line="165" lean-forward="true" selection-start-line="165" selection-end-line="165" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
-                <marker date="1533301298482" expanded="true" signature="205:2320" ph="..." />
+                <marker date="1533551396097" expanded="true" signature="257:2458" ph="..." />
+                <marker date="1533551396097" expanded="true" signature="6513:6573" ph="..." />
               </folding>
             </state>
           </provider>
@@ -16546,14 +16538,14 @@
         <option value="$PROJECT_DIR$/core/read_model.py" />
         <option value="$PROJECT_DIR$/core/Reconstruct.py" />
         <option value="$PROJECT_DIR$/core/ROI_Matching.py" />
-        <option value="$PROJECT_DIR$/NoumenaRobotics/Reconstruct.py" />
-        <option value="$PROJECT_DIR$/NoumenaRobotics/ROI_Matching.py" />
         <option value="$PROJECT_DIR$/NoumenaRobotics/Database_Modification.py" />
         <option value="$PROJECT_DIR$/setup.py" />
+        <option value="$PROJECT_DIR$/NoumenaRobotics/ROI_Matching.py" />
+        <option value="$PROJECT_DIR$/NoumenaRobotics/Reconstruct.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="777" />
     <option name="height" value="410" />
   </component>
@@ -16609,12 +16601,33 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/core" />
+      <option name="SDK_HOME" value="$PROJECT_DIR$/../Thermal_RGB_Matching/venv/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/NoumenaRobotics" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/core/Reconstruct.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/NoumenaRobotics/Reconstruct.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="RGB_Termal_Match" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/../Thermal_RGB_Matching/venv/bin/python" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -16787,22 +16800,30 @@
       <option name="project" value="LOCAL" />
       <updated>1533303720949</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Approach 1 Checkpoint.">
+      <created>1533304109316</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1533304109317</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49896908" visible="true" weight="0.16309012" />
-      <window_info id="Structure" order="1" sideWeight="0.5010309" side_tool="true" visible="true" weight="0.16309012" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4969072" visible="true" weight="0.16523606" />
+      <window_info id="Structure" order="1" sideWeight="0.50309277" side_tool="true" visible="true" weight="0.16523606" />
       <window_info anchor="bottom" id="Inspection Results" order="0" weight="0.3296593" />
       <window_info anchor="bottom" id="Python Console" order="1" weight="0.32848486" />
       <window_info anchor="bottom" id="Terminal" order="2" weight="0.3296593" />
-      <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.31330472" side_tool="true" visible="true" weight="0.39900866" />
+      <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.31759655" side_tool="true" visible="true" weight="0.39900866" />
       <window_info anchor="bottom" id="Version Control" order="4" sideWeight="0.49928468" weight="0.3283767" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Find" order="6" sideWeight="0.49499285" weight="0.32771084" />
-      <window_info anchor="bottom" id="Run" order="7" sideWeight="0.6866953" visible="true" weight="0.39900866" />
+      <window_info active="true" anchor="bottom" id="Run" order="7" sideWeight="0.68240345" visible="true" weight="0.39900866" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.39759037" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
@@ -16890,42 +16911,18 @@
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Images/Camera_Images/0001/IMG_180621_093916_0000_GRE.TIF">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Images/Camera_Images/0001/IMG_180621_093916_0000_RGB.JPG">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Images/Camera_Images/0003/IMG_180621_093932_0000_RGB.JPG">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Images/Camera_Images/0002/sequoia_diag.dat">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Images/Camera_Images/0002/IMG_180621_093924_0000_RGB.JPG">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Images/Camera_Images/0002/IMG_180621_093924_0000_REG.TIF">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Images/Thermal_Images/20180621_113834.tiff">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Images/Camera_Images/0000/IMG_180621_093908_0000_GRE.TIF">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Images/Camera_Images/0000/IMG_180621_093908_0000_NIR.TIF">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Images/Camera_Images/0000/IMG_180621_093908_0000_RED.TIF">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Images/Camera_Images/0000/IMG_180621_093908_0000_REG.TIF">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Images/Camera_Images/0000/IMG_180621_093908_0000_RGB.JPG">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Images/Camera_Images/0001/IMG_180621_093916_0000_GRE.TIF" />
+    <entry file="file://$PROJECT_DIR$/Images/Camera_Images/0001/IMG_180621_093916_0000_RGB.JPG" />
+    <entry file="file://$PROJECT_DIR$/Images/Camera_Images/0003/IMG_180621_093932_0000_RGB.JPG" />
+    <entry file="file://$PROJECT_DIR$/Images/Camera_Images/0002/sequoia_diag.dat" />
+    <entry file="file://$PROJECT_DIR$/Images/Camera_Images/0002/IMG_180621_093924_0000_RGB.JPG" />
+    <entry file="file://$PROJECT_DIR$/Images/Camera_Images/0002/IMG_180621_093924_0000_REG.TIF" />
+    <entry file="file://$PROJECT_DIR$/Images/Thermal_Images/20180621_113834.tiff" />
+    <entry file="file://$PROJECT_DIR$/Images/Camera_Images/0000/IMG_180621_093908_0000_GRE.TIF" />
+    <entry file="file://$PROJECT_DIR$/Images/Camera_Images/0000/IMG_180621_093908_0000_NIR.TIF" />
+    <entry file="file://$PROJECT_DIR$/Images/Camera_Images/0000/IMG_180621_093908_0000_RED.TIF" />
+    <entry file="file://$PROJECT_DIR$/Images/Camera_Images/0000/IMG_180621_093908_0000_REG.TIF" />
+    <entry file="file://$PROJECT_DIR$/Images/Camera_Images/0000/IMG_180621_093908_0000_RGB.JPG" />
     <entry file="file://$PROJECT_DIR$/Thermal.png" />
     <entry file="file://$PROJECT_DIR$/JJ_screenshot_18.07.2018.png" />
     <entry file="file://$PROJECT_DIR$/venv/bin/activate">
@@ -16936,17 +16933,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Match_by_Time.py" />
     <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="text-editor">
+        <state>
+          <caret column="22" lean-forward="true" selection-start-column="22" selection-end-column="22" />
+        </state>
+      </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="60">
             <caret line="4" selection-start-line="4" selection-end-line="7" selection-end-column="26" />
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state>
-          <caret column="22" lean-forward="true" selection-start-column="22" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -17026,19 +17023,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/NoumenaRobotics/ROI_Matching.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="66" selection-start-line="66" selection-end-line="66" />
+        <state relative-caret-position="273">
+          <caret line="165" lean-forward="true" selection-start-line="165" selection-end-line="165" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
-            <marker date="1533301298482" expanded="true" signature="205:2320" ph="..." />
+            <marker date="1533551396097" expanded="true" signature="257:2458" ph="..." />
+            <marker date="1533551396097" expanded="true" signature="6513:6573" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/multiprocessing/connection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="212" column="30" lean-forward="true" selection-start-line="212" selection-start-column="30" selection-end-line="212" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/NoumenaRobotics/Reconstruct.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-900">
-          <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
+        <state relative-caret-position="-569">
+          <caret line="31" column="29" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+            <marker date="1533555408649" expanded="true" signature="201:232" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

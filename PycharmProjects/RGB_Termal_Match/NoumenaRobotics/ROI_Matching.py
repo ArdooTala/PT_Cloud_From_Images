@@ -10,12 +10,16 @@ class ImageUtils:
     thermalDateTimes = {}
 
     def __init__(self, path):
+        print(">>> INITIATING CLASS: %s" % path[1])
         self.root = path[0]
         self.file = path[1]
         self.dateTime = self.extractDateTime(self.file)
+        print("\t\tDate/Time extracted . . .")
         self.closestImage = self.matchThermal()
+
         (self.minY, self.minX), (self.maxY, self.maxX), self.collage = \
             self.matchImages()
+        print("\t\tThermal Matched.")
 
     @classmethod
     def importThermalImages(cls, tif_image_path):
@@ -106,11 +110,10 @@ class ImageUtils:
                     cv2.waitKey()
 
     def matchImages(self):
-        rgb_img = cv2.imread(os.path.join(self.root, self.file), 1)
-
-        r_image = cv2.cvtColor(rgb_img, cv2.COLOR_BGR2GRAY)
+        rgb_image = cv2.imread(os.path.join(self.root, self.file), 0)
+        # rgb_image = cv2.cvtColor(rgb_img, cv2.COLOR_BGR2GRAY)
         # r_image = cv2.equalizeHist(r_image)
-        blur_rgb = cv2.GaussianBlur(r_image, (7, 7), 5)
+        blur_rgb = cv2.GaussianBlur(rgb_image, (7, 7), 5)
         rgb_edges = cv2.Canny(blur_rgb, 60, 80)
         rgb_edges = cv2.dilate(rgb_edges, np.ones((5, 5)), iterations=1)
         rgb_edges = cv2.erode(rgb_edges, np.ones((3, 3)), iterations=1)
@@ -152,10 +155,16 @@ class ImageUtils:
         # overlap[top_left[1]:bottom_right[1], top_left[0]:bottom_right[0], 2] = template_edges
         # show(overlap)
 
-        collage = r_image
+        collage = rgb_image
         collage[top_left[1]:bottom_right[1], top_left[0]:bottom_right[0]] = template
+        # self.collage = collage
 
         ## Temp . . .
         # cv2.rectangle(collage, top_left, bottom_right, 0, thickness=10)
-
+        # (self.minY, self.minX), (self.maxY, self.maxX) = \
+        #     top_left, bottom_right
         return top_left, bottom_right, collage
+
+
+if __name__ == '__main__':
+    pass
