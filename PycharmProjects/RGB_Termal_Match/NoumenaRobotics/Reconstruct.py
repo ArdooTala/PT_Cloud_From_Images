@@ -1,22 +1,25 @@
-from colmapScripts.read_model import *
-from NoumenaRobotics.ROI_Matching import ImageUtils
 from multiprocessing import Pool, cpu_count
 import cv2
+from NoumenaRobotics.ROI_Matching import ImageUtils
+from colmapScripts.read_model import *
 
 
+def static_vars(**kwargs):
+    def decorate(func):
+        for k in kwargs:
+            setattr(func, k, kwargs[k])
+        return func
+    return decorate
+
+
+@static_vars(counter=0)
 def mi(path):
+    print("====ID: {:04}================================".format(mi.counter))
+    mi.counter += 1
     return ImageUtils(path)
 
 
 def main(rgbs_path, thermals_path):
-    cameras, images, points3D = \
-        read_model(path='/Users/Ardoo/Desktop/COLMAP_Test/Exports/TXT0/',
-                   ext=".txt")
-
-    print("num_cameras:", len(cameras))
-    print("num_images:", len(images))
-    print("num_points3D:", len(points3D))
-    print("\n\________(o_O)________/\n")
 
     ImageUtils.importThermalImages(thermals_path)
 
@@ -26,10 +29,29 @@ def main(rgbs_path, thermals_path):
 
         with Pool(cpu_count()) as pool:
             print("~~~~ Into the pool ~~~~~~~~~~~~~~~~~~~~~~~~")
-            imgLst = pool.map(mi, paths)
+            imgLst = pool.map(mi, paths[:50])
             print("And OUT!")
 
+        # imgLst = map(mi, paths[:10])
+
         imgs = {imgUtl.file: imgUtl for imgUtl in imgLst}
+
+        win = cv2.namedWindow("Good?")
+        for i in imgs.values():
+            if not hasattr(i, 'collage'): continue
+            cv2.imshow(win, i.collage)
+            cv2.waitKey()
+    ## PAUSE!
+    return
+
+    cameras, images, points3D = \
+        read_model(path='/Users/Ardoo/Desktop/COLMAP_Test/Exports/TXT0/',
+                   ext=".txt")
+
+    print("num_cameras:", len(cameras))
+    print("num_images:", len(images))
+    print("num_points3D:", len(points3D))
+    print("\n\________(o_O)________/\n")
 
     point_cloud = {}
     for item in images.items():
@@ -85,7 +107,7 @@ def main(rgbs_path, thermals_path):
 
 
 if __name__ == '__main__':
-    trm_path = "/Users/Ardoo/Desktop/COLMAP_Test/Images/Thermals/"
-    rgb_path = "/Users/Ardoo/Desktop/COLMAP_Test/Images/RGB/"
+    trm_path = "/Users/ardoo/Desktop/PT_Cloud_From_Images/PycharmProjects/RGB_Termal_Match/Images/Sample/Thermal"
+    rgb_path = "/Users/ardoo/Desktop/Dense_Reconstruction/images/JPG"
 
     main(rgb_path, trm_path)
