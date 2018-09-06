@@ -118,23 +118,28 @@ class ImageUtils:
 
     def matchImages(self):
         #### RGB pre-processing
-        rgb_image = cv2.imread(os.path.join(self.root, self.file), 1)
+        rgb_image = cv2.imread(os.path.join(self.root, self.file), 0)
+        rgb_image_main = imutils.rotate_bound(rgb_image, 180)
+        offset_0 = int(rgb_image_main.shape[0] / 5)
+        offset_1 = int(rgb_image_main.shape[1] / 5)
+        rgb_image = rgb_image_main[offset_0:rgb_image_main.shape[0] - offset_0,
+                    offset_1:rgb_image_main.shape[1] - offset_1,
+                    :]
         # rgb_image = self.__class__.clahe.apply(rgb_image)
         blur_rgb = cv2.GaussianBlur(rgb_image, (11, 11), 10)
-
-        bins = np.linspace(0, 255, num=4)
-        inds = np.digitize(blur_rgb, bins).astype(np.float64) / 4
+        # rgb_edges = cv2.Canny(blur_rgb, 90, 100)
+        bins = np.linspace(0, 255, num=3)
+        inds = np.digitize(blur_rgb, bins).astype(np.float64) / 3
         inds1 = cv2.Canny(
             (inds[:, :, 0] * 255).astype(np.uint8),
-            190, 190)
+            190, 210)
         inds2 = cv2.Canny(
             (inds[:, :, 1] * 255).astype(np.uint8),
-            190, 190)
+            190, 210)
         inds3 = cv2.Canny(
             (inds[:, :, 2] * 255).astype(np.uint8),
-            190, 190)
+            190, 210)
         rgb_edges = cv2.bitwise_or(inds1, inds2, inds3)
-        # rgb_edges = cv2.Canny(blur_rgb, 100, 120)
 
         # rgb_edges = cv2.dilate(rgb_edges, np.ones((3, 3)), iterations=3)
         # rgb_edges = cv2.erode(rgb_edges, np.ones((3, 3)), iterations=3)
@@ -149,10 +154,10 @@ class ImageUtils:
         template = imutils.rotate_bound(template, 180)
         template = cv2.resize(template, (1728, 1217), interpolation=cv2.INTER_CUBIC)
         # equ_template = cv2.equalizeHist(template)
-        blur_template = cv2.GaussianBlur(template, (5, 5), 5)
+        blur_template = cv2.GaussianBlur(template, (7, 7), 7)
         equ_template = self.__class__.clahe.apply(blur_template)
         # cv2.imwrite("/Users/ardoo/Desktop/Thermals_Normalized/" + self.closestImage[0][1], equ_template)
-        template_edges = cv2.Canny(equ_template, 20, 40)
+        template_edges = cv2.Canny(equ_template, 30, 50)
 
         # template_edges = cv2.dilate(template_edges, np.ones((3, 3)), iterations=3)
         # template_edges = cv2.erode(template_edges, np.ones((3, 3)), iterations=3)
@@ -160,8 +165,11 @@ class ImageUtils:
         # template_edges = cv2.resize(template_edges, None, fx=.2, fy=.2)
         template_edges = cv2.blur(template_edges, (5, 5))
 
-        # self.show(template_edges)
-        # self.show(rgb_edges)
+        # self.show(rgb_image)
+        # self.show(template)
+        #
+        # self.show(cv2.resize(rgb_edges, (1024, 768)))
+        # self.show(cv2.resize(template_edges, (768, 480)))
 
         h, w = template.shape
 
@@ -171,6 +179,9 @@ class ImageUtils:
         res = cv2.matchTemplate(rgb_edges, template_edges, method)
         min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
         top_left = max_loc  # If the method is TM_SQDIFF or TM_SQDIFF_NORMED, take minimum
+
+        top_left = (top_left[0] + offset_1, top_left[1] + offset_0)
+
         # top_left = [i*5 for i in top_left]
         bottom_right = (top_left[0] + w, top_left[1] + h)
 
@@ -182,7 +193,8 @@ class ImageUtils:
         # overlap[top_left[1]:bottom_right[1], top_left[0]:bottom_right[0], 2] = template_edges
         # show(overlap)
 
-        collage = cv2.cvtColor(rgb_image, cv2.COLOR_BGR2GRAY)
+        # collage = cv2.cvtColor(rgb_image, cv2.COLOR_BGR2GRAY)
+        collage = cv2.cvtColor(rgb_image_main, cv2.COLOR_BGR2GRAY)
         collage[top_left[1]:bottom_right[1], top_left[0]:bottom_right[0]] = template
         # self.collage = collage
 
