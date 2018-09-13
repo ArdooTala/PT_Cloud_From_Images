@@ -1,7 +1,7 @@
-from multiprocessing import Pool, cpu_count
 import cv2
-from NoumenaRobotics.ROI_Matching import ImageUtils
-from colmapScripts.read_model import *
+from multiprocessing import Pool, cpu_count
+from src.colmapScripts.read_model import *
+from src.NoumenaRobotics.ROI_Matching import ImageUtils
 
 
 def static_vars(**kwargs):
@@ -9,6 +9,7 @@ def static_vars(**kwargs):
         for k in kwargs:
             setattr(func, k, kwargs[k])
         return func
+
     return decorate
 
 
@@ -20,7 +21,6 @@ def mi(path):
 
 
 def main(rgbs_path, thermals_path):
-
     ImageUtils.importThermalImages(thermals_path)
 
     for root, subs, files in os.walk(rgbs_path):
@@ -36,9 +36,11 @@ def main(rgbs_path, thermals_path):
 
         imgs = {imgUtl.file: imgUtl for imgUtl in imgLst}
 
+        ## Visualize the collages
         win = cv2.namedWindow("Good?")
         for i in imgs.values():
-            if not hasattr(i, 'collage'): continue
+            if not hasattr(i, 'collage'):
+                continue
             cv2.imshow(win, i.collage)
             cv2.waitKey()
     ## PAUSE!
